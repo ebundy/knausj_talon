@@ -1,6 +1,7 @@
 from talon import Context, Module, actions, imgui, settings, ui
 import os
 import subprocess
+from .user_settings import get_list_from_csv
 
 mod = Module()
 mod.apps.mintty = """
@@ -8,6 +9,10 @@ os: windows
 and app.name: Terminal
 os: windows
 and app.name: mintty.exe
+os: windows
+and app.name: git-bash.exe
+os: windows
+and title: /MINGW64/
 """
 
 
@@ -23,6 +28,10 @@ ctx.tags = [
     "user.kubectl",
 ]
 
+ctx.lists["user.vocabulary"] = get_list_from_csv(
+    "foo.csv",
+    headers=("Word(s)", "Spoken Form (If Different)")
+)
 directories_to_remap = {}
 directories_to_exclude = {}
 
@@ -64,7 +73,6 @@ class UserActions:
     def file_manager_open_parent():
         actions.insert("cd ..")
         actions.key("enter")
-
     def file_manager_current_path():
         path = ui.active_window().title
         path = get_win_path(path)
@@ -110,6 +118,7 @@ class UserActions:
         actions.user.file_manager_open_directory(volume)
 
     def terminal_list_directories():
+        print('ddd')	    
         actions.insert("ls")
         actions.key("enter")
 
@@ -138,3 +147,26 @@ class UserActions:
         actions.key("ctrl-c")
         actions.insert("y")
         actions.key("enter")
+
+    def grep(command: str):
+        print('dodo!')
+        """kills the running command"""        
+        #actions.key("ctrl-c")
+        actions.insert(f"grep '{command}' -rni ")
+        if not command:
+          for _ in range(7):
+            actions.key("left")
+        #actions.key("enter")
+
+    def find_by_name(command: str):
+        actions.insert(f"find -name '{command}'")
+        if not command:
+          for _ in range(1):
+            actions.key("left")	
+			
+    def script_copy_last_line():        
+       actions.next()
+       print('(minty)script_copy_last_line')
+	   #sleep(0.5)
+	   #key("grid one") 		
+			

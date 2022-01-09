@@ -2,16 +2,13 @@ mode: dictation
 -
 ^press <user.keys>$: key("{keys}")
 
-# Everything here should call `auto_insert()` (instead of `insert()`), to preserve the state to correctly auto-capitalize/auto-space.
-# (Talonscript string literals implicitly call `auto_insert`, so there's no need to wrap those)
-<user.raw_prose>: auto_insert(raw_prose)
-cap: user.dictation_format_cap()
-# Hyphenated variants are for Dragon.
-(no cap | no-caps): user.dictation_format_no_cap()
-(no space | no-space): user.dictation_format_no_space()
-^cap that$: user.dictation_reformat_cap()
-^(no cap | no-caps) that$: user.dictation_reformat_no_cap()
-^(no space | no-space) that$: user.dictation_reformat_no_space()
+# Everything here should call auto_insert to preserve the state to correctly auto-capitalize/auto-space.
+<user.prose>: auto_insert(prose)
+new line: "\n"
+new paragraph: "\n\n"
+cap <user.word>:
+    result = user.formatted_text(word, "CAPITALIZE_FIRST_WORD")
+    auto_insert(result)
     
 # Navigation
 go up <number_small> (line|lines):
@@ -29,13 +26,26 @@ go right <number_small> (word|words):
 go line start: edit.line_start()
 go line end: edit.line_end()
 
+# misc
+<number_small> (times|time): core.repeat_command(number_small)
+paste it: edit.paste()
+pastit: edit.paste()
+undo it: edit.undo()
+redo it: edit.redo()
+copy it: edit.copy()
+copyit: edit.copy()
+cudit: edit.cut()
+space: key(space)
+trash: key(backspace)    
+
 # Selection
-select left <number_small> (word|words):
+ex left :
     edit.extend_word_left()
-    repeat(number_small - 1)
-select right <number_small> (word|words):
+    
+ex right :
     edit.extend_word_right()
-    repeat(number_small - 1)
+     
+	 
 select left <number_small> (character|characters):
     edit.extend_left()
     repeat(number_small - 1)

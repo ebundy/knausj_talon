@@ -1,6 +1,6 @@
-# defines the default edit actions for windows
+	# defines the default edit actions for windows
 
-from talon import Context, actions
+from talon import Context, actions, ctrl
 ctx = Context()
 ctx.matches = r"""
 os: windows
@@ -33,6 +33,7 @@ class EditActions:
     def extend_file_start():
         actions.key('shift-ctrl-home')
     def extend_left():
+        print('extend left')		
         actions.key('shift-left')
         #action(edit.extend_line):
     def extend_line_down():
@@ -52,6 +53,7 @@ class EditActions:
         #action(edit.extend_paragraph_previous()):
         #action(edit.extend_paragraph_start()):
     def extend_right():
+        print('extend right')		
         actions.key('shift-right')
         #action(edit.extend_sentence_end):
         #action(edit.extend_sentence_next):
@@ -118,6 +120,12 @@ class EditActions:
     def select_line(n: int=None):
         actions.key('end shift-home')
         #action(edit.select_lines(a: int, b: int)):
+	 	
+    def copy_line(n: int=None):
+        actions.key('end shift-home')
+        actions.key('ctrl-c')
+        #action(edit.select_lines(a: int, b: int)):
+		
     def select_none():
         actions.key('right')
         #action(edit.select_paragraph):
@@ -126,6 +134,12 @@ class EditActions:
         actions.edit.right()
         actions.edit.word_left()
         actions.edit.extend_word_right()
+    def copy_word():
+        actions.edit.right()
+        actions.edit.word_left()
+        actions.edit.extend_word_right()		
+        actions.key('ctrl-c')
+
     def undo():
         actions.key('ctrl-z')
     def up():

@@ -1,5 +1,6 @@
 -
 settings():
+    #speech.timeout = 0.4
     # Adjust the scale of the imgui to my liking
     imgui.scale = 1.3
 
@@ -37,7 +38,7 @@ settings():
     user.grids_put_one_bottom_left = 1
 
     # The number of lines of command history to display by default
-    user.command_history_display = 10
+    user.command_history_display = 20
 
     # The number of lines of command history to keep in total;
     # "command history more" to display all of them, "command history less" to restore

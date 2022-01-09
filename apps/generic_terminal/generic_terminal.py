@@ -1,4 +1,4 @@
-from talon import app, Module, Context, actions, ui, imgui, settings, app, registry
+from talon import app, Module, Context, actions, ui, imgui, settings, app, registry, ctrl
 
 mod = Module()
 
@@ -29,3 +29,22 @@ class Actions:
 
     def terminal_kill_all():
         """kills the running command"""
+    
+    def grep(command: str): "grep comment. good here for interface"
+	
+    def find_by_name(command: str): "grep comment. good here for interface"	
+	
+    def script_copy_last_line() : 
+       """to document later"""
+       actions.user.grid_activate()
+       actions.sleep(0.3) 
+       actions.user.grid_narrow_list([1,1])
+       actions.sleep(0.3) 
+       actions.user.grid_close()	   
+       ctrl.mouse_click(button=0)	   
+       ctrl.mouse_click(button=0)	   
+       ctrl.mouse_click(button=0)	   
+       actions.sleep(0.3)  
+       actions.edit.copy()
+	   #sleep(0.5)
+	   #key("grid one") 

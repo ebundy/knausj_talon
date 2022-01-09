@@ -74,7 +74,7 @@ class UserActions:
     def code_operator_division_assignment():
         actions.auto_insert(" /= ")
 
-    def code_comment_line_prefix():
+    def code_comment():
         actions.auto_insert('"')
 
     def code_state_if():

@@ -40,7 +40,7 @@ def format_phrase(m: Union[str, Phrase], fmtrs: str):
             m.words = m.words[:-1]
 
         words = actions.dictate.parse_words(m)
-        words = actions.user.replace_phrases(words)
+        words = actions.dictate.replace_words(words)
 
     result = last_phrase_formatted = format_phrase_no_history(words, fmtrs)
     actions.user.add_phrase_to_history(result)
@@ -126,7 +126,8 @@ formatters_dict = {
     "ALL_CAPS": (SEP, every_word(lambda w: w.upper())),
     "ALL_LOWERCASE": (SEP, every_word(lambda w: w.lower())),
     "DOUBLE_QUOTED_STRING": (SEP, surround('"')),
-    "SINGLE_QUOTED_STRING": (SEP, surround("'")),
+    
+	"SINGLE_QUOTED_STRING": (SEP, surround("'")),
     "SPACE_SURROUNDED_STRING": (SEP, surround(" ")),
     "DOT_SEPARATED": words_with_joiner("."),
     "DOT_SNAKE": (NOSEP, lambda i, word, _: "." + word if i == 0 else "_" + word),
@@ -149,7 +150,7 @@ formatters_words = {
     "alldown": formatters_dict["ALL_LOWERCASE"],
     "camel": formatters_dict["PRIVATE_CAMEL_CASE"],
     "dotted": formatters_dict["DOT_SEPARATED"],
-    "dubstring": formatters_dict["DOUBLE_QUOTED_STRING"],
+    "dubquote": formatters_dict["DOUBLE_QUOTED_STRING"],
     "dunder": formatters_dict["DOUBLE_UNDERSCORE"],
     "hammer": formatters_dict["PUBLIC_CAMEL_CASE"],
     "kebab": formatters_dict["DASH_SEPARATED"],
@@ -158,8 +159,9 @@ formatters_words = {
     "slasher": formatters_dict["SLASH_SEPARATED"],
     "smash": formatters_dict["NO_SPACES"],
     "snake": formatters_dict["SNAKE_CASE"],
-    "string": formatters_dict["SINGLE_QUOTED_STRING"],
+    "quote": formatters_dict["SINGLE_QUOTED_STRING"],
     "title": formatters_dict["CAPITALIZE_ALL_WORDS"],
+	
 }
 
 all_formatters = {}
@@ -291,7 +293,7 @@ def unformat_text(text: str) -> str:
 
 ctx.lists["self.formatters"] = formatters_words.keys()
 ctx.lists["self.prose_formatter"] = {
-    "say": "NOOP",
+    #"say": "NOOP",
     "speak": "NOOP",
     "sentence": "CAPITALIZE_FIRST_WORD",
 }

@@ -95,7 +95,7 @@ class UserActions:
     def code_operator_assignment():
         actions.auto_insert(" = ")
 
-    def code_comment_line_prefix():
+    def code_comment():
         actions.auto_insert("#")
 
     def code_insert_function(text: str, selection: str):

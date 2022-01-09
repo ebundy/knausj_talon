@@ -42,7 +42,8 @@ class EditActions:
     def indent_more(): actions.key('tab')
     def indent_less(): actions.key('shift-tab')
     def jump_line(n: int):
-        actions.key("ctrl-g")
+        print('60') 
+        actions.key("ctrl-g") 
         actions.insert(str(n))
         actions.key("enter")
 
@@ -87,6 +88,8 @@ class UserActions:
 
     def find(text: str):
         """Triggers find in current editor"""
+        actions.find('insert')
+
         actions.key("ctrl-f")
 
         if text:

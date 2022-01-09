@@ -50,3 +50,8 @@ class Actions:
         actions.key("ctrl-c")
         actions.insert("y")
         actions.key("enter")
+		
+    def grep(command: str): "grep comment"
+
+		
+		

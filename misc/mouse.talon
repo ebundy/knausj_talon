@@ -2,12 +2,12 @@ control mouse: user.mouse_toggle_control_mouse()
 zoom mouse: user.mouse_toggle_zoom_mouse()
 camera overlay: user.mouse_toggle_camera_overlay()
 run calibration: user.mouse_calibrate()	
-touch: 
+click: 
 	mouse_click(0)
 	# close the mouse grid if open
 	user.grid_close()
     	# End any open drags
-	# Touch automatically ends left drags so this is for right drags specifically
+	# click automatically ends left drags so this is for right drags specifically
 	user.mouse_drag_end()
 
 righty:
@@ -27,7 +27,7 @@ midclick:
 #option = alt
 #shift
 #super = windows key
-<user.modifiers> touch: 
+<user.modifiers> click: 
 	key("{modifiers}:down")
 	mouse_click(0)
 	key("{modifiers}:up")
@@ -39,18 +39,25 @@ midclick:
 	key("{modifiers}:up")
 	# close the mouse grid
 	user.grid_close()
-(dubclick | duke): 
+(duke): 
 	mouse_click()
 	mouse_click()
 	# close the mouse grid
 	user.grid_close()
-(tripclick | triplick): 
+(duke copy | dukecopy): 
+	mouse_click()
+	mouse_click()
+	# close the mouse grid
+	user.grid_close()	
+	edit.copy()
+(triplick): 
 	mouse_click()
 	mouse_click()
 	mouse_click()
 	# close the mouse grid
 	user.grid_close()
-left drag | drag:
+
+drag:
 	user.mouse_drag(0)
 	# close the mouse grid
 	user.grid_close()
@@ -60,9 +67,10 @@ right drag | righty drag:
 	user.grid_close()
 end drag | drag end:
     user.mouse_drag_end()
-wheel down: user.mouse_scroll_down()
+mouse down: user.mouse_scroll_down()
+mousedown: user.mouse_scroll_down()
+mousdown: user.mouse_scroll_down()
 wheel down here:
-    user.mouse_move_center_active_window()
     user.mouse_scroll_down()
 wheel tiny [down]: user.mouse_scroll_down(0.2)
 wheel tiny [down] here:
@@ -72,7 +80,9 @@ wheel downer: user.mouse_scroll_down_continuous()
 wheel downer here:
     user.mouse_move_center_active_window()
     user.mouse_scroll_down_continuous()
-wheel up: user.mouse_scroll_up()
+mouse up: user.mouse_scroll_up()
+mouseup: user.mouse_scroll_up()
+mousup: user.mouse_scroll_up()
 wheel up here:
     user.mouse_move_center_active_window()
     user.mouse_scroll_up()
@@ -80,7 +90,7 @@ wheel tiny up: user.mouse_scroll_up(0.2)
 wheel tiny up here:
     user.mouse_move_center_active_window()
     user.mouse_scroll_up(0.2)
-wheel upper: user.mouse_scroll_up_continuous()
+wheel top: user.mouse_scroll_up_continuous()
 wheel upper here:
     user.mouse_move_center_active_window()
     user.mouse_scroll_up_continuous()
@@ -98,7 +108,7 @@ wheel left here:
     user.mouse_scroll_left()
 wheel tiny left: user.mouse_scroll_left(0.5)
 wheel tiny left here:
-    user.mouse_move_center_active_window()
+    user.mouse_move_center_active_window() 
     user.mouse_scroll_left(0.5)
 wheel right: user.mouse_scroll_right()
 wheel right here:
@@ -109,6 +119,6 @@ wheel tiny right here:
     user.mouse_move_center_active_window()
     user.mouse_scroll_right(0.5)
 copy mouse position: user.copy_mouse_position()
-curse no:
+#curse no:
     # Command added 2021-12-13, can remove after 2022-06-01
-    app.notify("Please activate the user.mouse_cursor_commands_enable tag to enable this command")
+ #   app.notify("Please activate the user.mouse_cursor_commands_enable tag to enable this command")

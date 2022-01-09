@@ -23,6 +23,7 @@ numbers_map.update(scales_map)
 
 def parse_number(l: List[str]) -> str:
     """Parses a list of words into a number/digit string."""
+    print('	birth number')
     l = list(scan_small_numbers(l))
     for scale in scales:
         l = parse_scale(scale, l)
@@ -148,7 +149,7 @@ def split_list(value, l: list) -> Iterator:
 # #test_number(100001010, "one million ten ten")
 # #test_number(1050006000, "one hundred thousand and five thousand and six thousand")
 
-
+
 # ---------- CAPTURES ----------
 alt_digits = "(" + ("|".join(digits_map.keys())) + ")"
 alt_teens = "(" + ("|".join(teens_map.keys())) + ")"
@@ -168,6 +169,19 @@ def digit_string(m) -> str: return parse_number(list(m))
 def digits(m) -> int:
     """Parses a phrase representing a digit sequence, returning it as an integer."""
     return int(m.digit_string)
+
+# added by David
+@mod.capture(rule=f"({alt_digits})+")
+def basic_digit_string(m) -> int: 
+    print(f'mmmm={m}')
+    v = int(parse_number(list(m)))
+    print(f'v={v}')
+    print('type='+str(type(v)))
+    
+    return v
+    #return int(m)
+	
+#David and 	
 
 @mod.capture(rule=f"{number_word_leading} ([and] {number_word})*")
 def number_string(m) -> str:

@@ -3,13 +3,16 @@ from typing import Set
 from talon import Module, Context, actions, app
 import sys
 
-default_alphabet = "air bat cap drum each fine gust harp sit jury crunch look made near odd pit quench red sun trap urge vest whale plex yank zip".split(
-    " "
-)
+default_alphabet = ("atos black clyde dave eric fox glen hank ivan jack kent " 
+					"luka mac nix opi pat quake rob smith timy "
+					"usher vick west ex yugi zoko"
+                    ).split(" ")
+
 letters_string = "abcdefghijklmnopqrstuvwxyz"
 
 default_digits = "zero one two three four five six seven eight nine".split(" ")
 numbers = [str(i) for i in range(10)]
+numbers_one_to_nine = "zero one two three four five six seven eight nine".split(" ")
 default_f_digits = "one two three four five six seven eight nine ten eleven twelve".split(
     " "
 )
@@ -19,6 +22,7 @@ mod.list("letter", desc="The spoken phonetic alphabet")
 mod.list("symbol_key", desc="All symbols from the keyboard")
 mod.list("arrow_key", desc="All arrow keys")
 mod.list("number_key", desc="All number keys")
+mod.list("numbers_one_to_nine", desc="numbers from 1 to 9")
 mod.list("modifier_key", desc="All modifier keys")
 mod.list("function_key", desc="All function keys")
 mod.list("special_key", desc="All special keys")
@@ -113,9 +117,10 @@ def letters(m) -> str:
 ctx = Context()
 modifier_keys = {
     # If you find 'alt' is often misrecognized, try using 'alter'.
-    "alt": "alt",  #'alter': 'alt',
-    "control": "ctrl",  #'troll':   'ctrl',
-    "shift": "shift",  #'sky':     'shift',
+    "at": "alt",  #'alter': 'alt',
+    "coun": "ctrl",  #'troll':   'ctrl',
+    "con": "ctrl",  #'troll':   'ctrl',
+	"shift": "shift",  #'sky':     'shift',
     "super": "super",
 }
 if app.platform  == "mac":
@@ -124,6 +129,12 @@ if app.platform  == "mac":
 ctx.lists["self.modifier_key"] = modifier_keys
 alphabet = dict(zip(default_alphabet, letters_string))
 ctx.lists["self.letter"] = alphabet
+ctx.lists["self.numbers_one_to_nine"] = {
+      "one": "1",
+	  "one three four": "134",
+	  "one three two": "132",
+}
+
 
 # `punctuation_words` is for words you want available BOTH in dictation and as key names in command mode.
 # `symbol_key_words` is for key names that should be available in command mode, but NOT during dictation.
@@ -133,7 +144,7 @@ punctuation_words = {
     "`": "`",
     ",": ",",  # <== these things
     "back tick": "`",
-    "grave": "`",
+    "grave accent": "`",
     "comma": ",",
     "period": ".",
     "full stop": ".",
@@ -144,7 +155,7 @@ punctuation_words = {
     "exclamation mark": "!",
     "exclamation point": "!",
     "asterisk": "*",
-    "hash sign": "#",
+    "hash key": "#",
     "number sign": "#",
     "percent sign": "%",
     "at sign": "@",
@@ -156,15 +167,15 @@ punctuation_words = {
     "pound sign": "£",
 }
 symbol_key_words = {
-    "dot": ".",
+    #"dot": ".",
     "point": ".",
     "quote": "'",
     "apostrophe": "'",
-    "L square": "[",
-    "left square": "[",
-    "square": "[",
-    "R square": "]",
-    "right square": "]",
+    #"L bracket": "[",
+    #"left bracket": "[",
+    "bracket": "[",
+    #"R bracket": "]",
+    "end bracket": "]",
     "slash": "/",
     "backslash": "\\",
     "minus": "-",
@@ -172,18 +183,16 @@ symbol_key_words = {
     "equals": "=",
     "plus": "+",
     "tilde": "~",
-    "bang": "!",
+    "exclamation": "!",
     "down score": "_",
     "under score": "_",
-    "paren": "(",
-    "L paren": "(",
-    "left paren": "(",
-    "R paren": ")",
-    "right paren": ")",
+    "parent":"(",
+  #  "left parent": "(",
+    #"R parent": ")",
+    "end parent": ")",    
     "brace": "{",
-    "left brace": "{",
-    "R brace": "}",
-    "right brace": "}",
+    #"R brace": "}",
+    "end brace": "}",
     "angle": "<",
     "left angle": "<",
     "less than": "<",
@@ -191,18 +200,19 @@ symbol_key_words = {
     "R angle": ">",
     "right angle": ">",
     "greater than": ">",
-    "star": "*",
-    "hash": "#",
+    "sterix": "*",
+    "hashkey": "#",
+	"hash key": "#",
     "percent": "%",
-    "caret": "^",
+  #  "caret": "^",
     "amper": "&",
-    "pipe": "|",
+    #"pipe": "|",
     "dubquote": '"',
     "double quote": '"',
 
     # Currencies
     "dollar": "$",
-    "pound": "£",
+    #"pound": "£",
 }
 
 # make punctuation words also included in {user.symbol_keys}
@@ -229,13 +239,21 @@ simple_keys = [
     "tab",
 ]
 
+
+
 alternate_keys = {
-    "delete": "backspace",
-    "forward delete": "delete",
+    "suppress": "delete",
+    # "forward delete": "delete",
     #'junk': 'backspace',
-    "page up": "pageup",
-    "page down": "pagedown",
+    #"page up": "pageup",
+	"viewup": "pageup",
+	"viewdown": "pagedown",
+	#"bin": "enter",
+	#"con": "ctrl",
+	"tep": "tab"
 }
+
+
 # mac apparently doesn't have the menu key.
 if app.platform in ("windows", "linux"):
     alternate_keys["menu key"] = "menu"

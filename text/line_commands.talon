@@ -1,15 +1,16 @@
 tag: user.line_commands
 -
 #this defines some common line commands. More may be defined that are ide-specific.
-lend: edit.line_end()
-bend: edit.line_start()
-go <number>: edit.jump_line(number)
-go <number> end: 
-    edit.jump_line(number)
-    edit.line_end()
+#lend: edit.line_end()
+#bend: edit.line_start()
+go <user.basic_digit_string>:	
+    edit.jump_line(basic_digit_string) 
+#go <number> end:  
+#    edit.jump_line(number)
+#    edit.line_end()
 comment [line] <number>:
     user.select_range(number, number)
-    code.toggle_comment()
+    code.toggle_comment() 
 comment <number> until <number>: 
     user.select_range(number_1, number_2)
     code.toggle_comment()
@@ -35,7 +36,7 @@ cut [line] <number> until <number>:
 (paste | replace) <number> until <number>:
     user.select_range(number_1, number_2)
     edit.paste()
-(select | cell | sell) [line] <number>: user.select_range(number, number)
+#(select | cell | sell) [line] <number>: user.select_range(number, number)
 (select | cell | sell) <number> until <number>: user.select_range(number_1, number_2)
 tab that: edit.indent_more()
 tab [line] <number>:

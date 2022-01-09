@@ -22,7 +22,7 @@ class Actions:
         actions.speech.enable()
 
         engine = speech_system.engine.name
-        # app.notify(engine)
+        # app.notify(engine)bg1
         if "dragon" in engine:
             if app.platform == "mac":
                 actions.user.engine_sleep()

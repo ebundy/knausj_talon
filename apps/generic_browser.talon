@@ -1,13 +1,13 @@
 tag: browser
 -
-address bar | go address | go url: browser.focus_address()
-address copy | url copy | copy address | copy url:
+go address: browser.focus_address()
+copy address | copyaddress:
     browser.focus_address()
     sleep(50ms)
     edit.copy()
 go home: browser.go_home()
-[go] forward: browser.go_forward()
-go (back | backward): browser.go_back()
+go forward | goforward: browser.go_forward() 
+go back | goback: browser.go_back()
 go to {user.website}: browser.go(website)
 go private: browser.open_private_window()
 

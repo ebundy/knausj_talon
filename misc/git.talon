@@ -26,6 +26,8 @@ git commit: "git commit\n"
 git diff (colour|color) words: "git diff --color-words "
 git diff: "git diff "
 git diff cached: "git diff --cached\n"
+git difftool: "git difftool"
+git difftool dir: "git difftool --dir-diff"
 git fetch: "git fetch\n"
 git fetch all: "git fetch --all\n"
 git fetch <user.text>: "git fetch {text}"
@@ -112,3 +114,16 @@ git commit highlighted:
     insert("git add ")
     edit.paste()
     insert("\ngit commit\n")
+
+git config list:
+	insert("git config -l")
+	key(enter)
+	
+
+git config list local:
+	insert("git config -l --local")
+	key(enter)
+	
+git config list global:
+	insert("git config -l --global")
+	key(enter)

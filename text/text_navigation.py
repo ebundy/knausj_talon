@@ -91,6 +91,15 @@ class Actions:
         """Like user.navigation, but to a named target."""
         r = re.compile(navigation_target_names[navigation_target_name])
         actions.user.navigation(navigation_action, direction, "DEFAULT", before_or_after, r, occurrence_number)
+		
+    def move(         
+            direction: str        # up, down, left, right         
+    ):
+        """Navigate in `direction` to the occurrence_number-th time that `regex` occurs, then execute `navigation_action` at the given `before_or_after` position."""
+        direction = direction.upper()
+        navigation_target_name = re.compile((navigation_target_names["word"] if (navigation_target_name == "DEFAULT") else navigation_target_name))
+        function = navigate_left if direction in ("UP", "LEFT") else navigate_right
+        function(navigation_action, navigation_target_name, before_or_after, regex, occurrence_number, direction)		
 
 def get_text_left():
     actions.edit.extend_line_start()
@@ -148,10 +157,11 @@ def extend_left(i):
 
 
 def extend_right(i):
+    print('extern right with the number ' + str(i))
     for j in range(0, i):
         actions.edit.extend_right()
 
-
+  
 def select(direction, start, end, length):
     if direction == "RIGHT" or direction == "DOWN":
         go_right(start)

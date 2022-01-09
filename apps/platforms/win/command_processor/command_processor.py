@@ -1,4 +1,4 @@
-from talon import Context, Module, actions, imgui, settings, ui, app
+from talon import Context, Module, actions, imgui, settings, ui, app, ctrl
 
 import os
 
@@ -109,3 +109,4 @@ class UserActions:
         actions.key("ctrl-c")
         actions.insert("y")
         actions.key("enter")
+

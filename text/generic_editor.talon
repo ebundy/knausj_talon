@@ -4,93 +4,76 @@ find it:
 next one:
     edit.find_next()
 
-go word left:
+move left:
     edit.word_left()
 
-go word right:
+move right:
     edit.word_right()
 
-go left:
+#move on:
+#    user.move_on()
+
+#move off:
+#    user.move_off()	
+
+left:
     edit.left()
 
-go right:
+right:
     edit.right()
 
-go up:
+up:
     edit.up()
 
-go down:
+down:
     edit.down()
-
-go line start:
-    edit.line_start()
-
-go line end:
-    edit.line_end()
-
-go way left:
-    edit.line_start()
-    edit.line_start()
-
-go way right:
-    edit.line_end()
-
-go way down:
-    edit.file_end()
-
-go way up:
-    edit.file_start()
-    
+   
 go bottom:
     edit.file_end()
     
 go top:
     edit.file_start()
 
-go page down:
-    edit.page_down()
-
-go page up:
-    edit.page_up()
 
 # selecting
 select line:
     edit.select_line()
-
+    
 select all:
     edit.select_all()
 
-select left:
+ex one left:
     edit.extend_left()
 
-select right:
+ex one right:
+    #actions.find('edit.extend_right')
     edit.extend_right()
-
-select up:
+ 
+ex up:
     edit.extend_line_up()
 
-select down:
+ex down:
     edit.extend_line_down()
 
 select word:
     edit.select_word()
 
-select word left:
+ex left:
     edit.extend_word_left()
 
-select word right:
+ex right:
     edit.extend_word_right()
 
-select way left:
+ex way left:
     edit.extend_line_start()
 
-select way right:
+ex way right: 
     edit.extend_line_end()
 
-select way up:
+ex way up:
     edit.extend_file_start()
 
-select way down:
+ex way down:
     edit.extend_file_end()
 
 # editing
@@ -171,11 +154,11 @@ copy word:
     edit.select_word()
     edit.copy()
 
-copy word left:
+copy left:
     edit.extend_word_left()
     edit.copy()
 
-copy word right:
+copy right:
     edit.extend_word_right()
     edit.copy()
 

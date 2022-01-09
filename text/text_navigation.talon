@@ -74,3 +74,5 @@ small word neck [<number_small>]: user.navigation_by_name("SELECT", "RIGHT", "DE
 small word pre [<number_small>]: user.navigation_by_name("SELECT", "LEFT", "DEFAULT", "small", number_small or 1)
 big word neck [<number_small>]: user.navigation_by_name("SELECT", "RIGHT", "DEFAULT", "big", number_small or 1)
 big word pre [<number_small>]: user.navigation_by_name("SELECT", "LEFT", "DEFAULT", "big", number_small or 1)
+
+#move {user.arrow_key}: user.navigation_by_name("SELECT", "LEFT", "DEFAULT", "big", number_small or 1)

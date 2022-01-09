@@ -7,7 +7,7 @@ mode: user.java
 mode: user.auto_lang
 and code.language: java
 """
-ctx.tags = ["user.code_operators", "user.code_generic", "user.code_functions_gui"]
+ctx.tags = ["user.code_operators", "user.code_generic"]
 
 # Primitive Types
 java_primitive_types = {
@@ -59,7 +59,7 @@ java_generic_data_structures = {
     "queue": "Queue",
     "deque": "Deque",
     "map": "Map",
-
+    
     # Classes
     "hash set": "HashSet",
     "array list": "ArrayList",
@@ -94,6 +94,12 @@ ctx.lists["self.java_modifiers"] = java_modifiers
 
 @ctx.action_class("user")
 class UserActions:
+    def code_operator_indirection():
+        actions.skip()
+
+    def code_operator_address_of():
+        actions.skip()
+
     def code_operator_lambda():
         actions.auto_insert(" -> ")
 
@@ -167,7 +173,7 @@ class UserActions:
     def code_operator_bitwise_and_assignment():
         actions.auto_insert(' &= ')
 
-    def code_operator_increment():
+    def code_operator_increment():        
         actions.auto_insert('++')
 
     def code_operator_bitwise_or():
@@ -191,16 +197,13 @@ class UserActions:
     def code_self():
         actions.auto_insert("this")
 
-    def code_operator_object_accessor():
-        actions.auto_insert(".")
-
-    def code_insert_null():
+    def code_null():
         actions.auto_insert("null")
 
-    def code_insert_is_null():
+    def code_is_null():
         actions.auto_insert(" == null")
 
-    def code_insert_is_not_null():
+    def code_is_not_null():
         actions.auto_insert(" != null")
 
     def code_state_if():
@@ -236,22 +239,22 @@ class UserActions:
         actions.edit.left()
         actions.edit.left()
 
-    def code_break():
+    def code_break():           
         actions.auto_insert('break;')
 
     def code_next():
         actions.auto_insert('continue;')
-
-    def code_insert_true():
+    
+    def code_true():          
         actions.auto_insert('true')
 
-    def code_insert_false():
+    def code_false():           
         actions.auto_insert('false')
 
-    def code_define_class():
+    def code_type_class():
         actions.auto_insert("class ")
 
-    def code_import():
+    def code_import():         
         actions.auto_insert("import ")
 
     def code_private_function(text: str):
@@ -266,7 +269,7 @@ class UserActions:
     def code_state_return():
         actions.insert("return ")
 
-    def code_comment_line_prefix():
+    def code_comment(): 
         actions.auto_insert('// ')
 
     def code_block_comment():
@@ -276,10 +279,10 @@ class UserActions:
         actions.insert('*/')
         actions.edit.up()
 
-    def code_block_comment_prefix():
+    def code_block_comment_prefix(): 
         actions.auto_insert('/*')
 
-    def code_block_comment_suffix():
+    def code_block_comment_suffix(): 
         actions.auto_insert('*/')
 
     def code_insert_function(text: str, selection: str):

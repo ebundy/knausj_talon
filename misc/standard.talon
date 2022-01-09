@@ -1,4 +1,3 @@
-#(jay son | jason ): "json"
 #(http | htp): "http"
 #tls: "tls"
 #M D five: "md5"
@@ -12,18 +11,20 @@
 #word shell: "shell".
 zoom in: edit.zoom_in()
 zoom out: edit.zoom_out()
-scroll up: edit.page_up()
-scroll down: edit.page_down()
-copy that: edit.copy()
-cut that: edit.cut()
-paste that: edit.paste()
-undo that: edit.undo()
-redo that: edit.redo()
+move up: edit.page_up()
+move down: edit.page_down()
+copy it: edit.copy()
+copyit: edit.copy()
+cudit: edit.cut()
+
+paste it: edit.paste()
+pastit: edit.paste()
+undo it: edit.undo()
+redo it: edit.redo()
 paste match: edit.paste_match_style()
 file save: edit.save()
-wipe: key(backspace)    
-(pad | padding): 
+trash: key(backspace)    
+(indent): 
 	insert("  ") 
-	key(left)
-slap: edit.line_insert_down()
-
+	key(left)  
+#slap: edit.line_insert_down()

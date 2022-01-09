@@ -1,8 +1,8 @@
-question [mark]: "?"
+question [mark]: "?"  
 (downscore | underscore): "_"
 double dash: "--"
-(bracket | brack | left bracket): "{"
-(rbrack | are bracket | right bracket): "}"
+(brace | left brace): "{"
+(rbrack | are brace | right brace): "}"
 triple quote: "'''"
 (triple grave | triple back tick | gravy):
     insert("```")
@@ -10,56 +10,50 @@ triple quote: "'''"
 ellipses: "..."
 (comma and | spamma): ", "
 plus: "+"
-arrow: "->"
-dub arrow: "=>"
+shaft: "->"
+dub shaft: "=>"
 new line: "\\n"
 carriage return: "\\r"
 line feed: "\\r\\n"
-empty dubstring:
-    '""'
-    key(left)
 empty escaped (dubstring|dub quotes):
     '\\"\\"'
     key(left)
     key(left)
-empty string:
-    "''"
-    key(left)
-empty escaped string:
-    "\\'\\'"
-    key(left)
-    key(left)
-(inside parens | args):
+(inside parent):
 	insert("()")
 	key(left)
-inside (squares | square brackets | list):
+inside (bracket):
 	insert("[]")
 	key(left)
-inside (bracket | braces):
+inside (brace):
 	insert("{}")
 	key(left)
 inside percent:
 	insert("%%")
 	key(left)
-inside (quotes | string):
+inside (quote):
 	insert("''")
 	key(left)
-inside (double quotes | dubquotes):
+inside (dubquote):
     insert('""')
 	key(left)
-inside (graves | back ticks):
+inside (back ticks):
 	insert("``")
+	key(left)
+
+inside sterisk:
+	insert("**")
 	key(left)
 angle that:
     text = edit.selected_text()
     user.paste("<{text}>")
-(square | square bracket) that:
+(bracket) that:
     text = edit.selected_text()
     user.paste("[{text}]")
-(bracket | brace) that:
+(brace) that:
     text = edit.selected_text()
     user.paste("{{{text}}}")
-(parens | args) that:
+parent that | paren that | parenthat:
     text = edit.selected_text()
     user.paste("({text})")
 percent that:
@@ -68,9 +62,10 @@ percent that:
 quote that:
     text = edit.selected_text()
     user.paste("'{text}'")
-(double quote | dubquote) that:
+(dubquote) that:
     text = edit.selected_text()
     user.paste('"{text}"')
 (grave | back tick) that:
     text = edit.selected_text()
     user.paste('`{text}`')
+
