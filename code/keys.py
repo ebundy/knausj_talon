@@ -4,7 +4,7 @@ from talon import Module, Context, actions, app
 import sys
 
 default_alphabet = ("atos black clyde dave eric fox glen hank ivan jack kent " 
-					"luka mac nix opi pat quake rob smith timy "
+					"luka mac nix opi pat quack rob smith timy "
 					"usher vick west ex yugi zoko"
                     ).split(" ")
 

@@ -49,4 +49,4 @@ class BrowserActions:
         actions.key('enter')
         #action(browser.title)
     def toggle_dev_tools():
-        actions.key('ctrl-shift-i')
+        actions.key('ctrl-shift-i')    

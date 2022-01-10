@@ -31,7 +31,7 @@ show history: browser.show_history()
 show cache: browser.show_clear_cache()
 
 #todo - port to apps
-# navigating current page
+# navigating current nave
 # help: key(?)
 # scroll tiny down: key(j)
 # scroll tiny up: key(k)
@@ -41,7 +41,7 @@ show cache: browser.show_clear_cache()
 # scroll push: key(z L)
 # scroll top: key(gg)
 # scroll (bottom | end): key(G)
-# (scroll half down | mini page): key(d)
+# (scroll half down | mini nave): key(d)
 # scroll half up: key(u)
 # [open] link: key(f)
 # [open] link new: key(F)
@@ -70,3 +70,32 @@ show cache: browser.show_clear_cache()
 # restore: key(X)
 # search tabs: key(T)
 # move to window: key(W)
+
+nave gitlab talon: 
+	browser.focus_address()
+	sleep(200ms)
+	insert("https://github.com/knausj85/knausj_talon/")
+	key(enter)
+	
+nave gitlab my talon: 
+	browser.go("https://github.com/ebundy/knausj_talon/")
+	
+nave blog: 
+	browser.go("http://myjavaadventures.com/blog/wp-admin/")
+	
+nave blog articles: 
+	browser.go("http://myjavaadventures.com/blog/wp-admin/edit.php")
+	user.move_cursor()
+	
+nave blog: 
+	browser.go("http://myjavaadventures.com/blog/wp-admin/")
+	
+nave blog: 
+	browser.go("http://myjavaadventures.com/blog/wp-admin/")
+	
+nave gmail David: 
+	browser.go("https://mail.google.com/mail/data/u/1/")
+	
+nave gmail ebundy: 
+	browser.go("https://mail.google.com/mail/data/u/0/")
+			

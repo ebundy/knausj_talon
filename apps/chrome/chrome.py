@@ -23,6 +23,15 @@ ctx.matches = r"""
 app: chrome
 """
 
+@mod.action_class
+class Actions:
+    # first : We need to define  a user action function 
+	# second:  either we define the implementation here or we can define it 
+	#  or override it  in the context  (see below)
+    def move_cursor():   
+	    """to do
+		"""
+
 @ctx.action_class("user")
 class user_actions:
     def tab_jump(number: int):
@@ -50,6 +59,12 @@ class user_actions:
         actions.sleep("180ms")
         actions.key("alt-enter")
 
+    def move_cursor():   
+        ctrl.mouse_move(106, 940)
+        position = ctrl.mouse_pos()
+        print(f'position={position}')
+        xx = type(position)
+        print(f'position type={xx}')
 
 @ctx.action_class("browser")
 class browser_actions:
@@ -58,3 +73,4 @@ class browser_actions:
         actions.sleep("50ms")
         actions.insert(url)
         actions.key("enter")
+
