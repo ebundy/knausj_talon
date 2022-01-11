@@ -3,9 +3,9 @@ tag: terminal
 -
 # tags should be activated for each specific terminal in the respective talon file
 
-lisa|liza|(list): 
+liza: 
     user.terminal_list_directories()
-lisa all: 
+liza all: 
     user.terminal_list_all_directories()
 (cidi [<user.text>])|(cd [<user.text>]): user.terminal_change_directory(text or "")
 cidi root: user.terminal_change_directory_root()

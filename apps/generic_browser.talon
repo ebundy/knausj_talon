@@ -52,7 +52,7 @@ show cache: browser.show_clear_cache()
 # insert mode: key(i)
 # next frame: key(g f)
 # main frame: key(g F)
-# navigating to new pages
+# navigating to new naves
 # (open | go) (url | history): key(o)
 # (open | go) (url | history) new: key(O)
 # (open | go) bookmark: key(b)
@@ -87,15 +87,26 @@ nave blog articles:
 	browser.go("http://myjavaadventures.com/blog/wp-admin/edit.php")
 	user.move_cursor()
 	
-nave blog: 
-	browser.go("http://myjavaadventures.com/blog/wp-admin/")
+nave picard: 
+	browser.go("https://www.picard.fr/")
 	
-nave blog: 
-	browser.go("http://myjavaadventures.com/blog/wp-admin/")
+
+nave picard search: 
+	browser.go("https://www.picard.fr/")
+	sleep(3s)
+	user.move_cursor_dav(809, 237, 1)	   
+
+	
+nave talon doc: 
+	browser.go("https://talon.wiki/unofficial_talon_docs/")
+	sleep(3s)
+	user.move_cursor_dav(202, 731, 0)	   
+
+	
 	
 nave gmail David: 
 	browser.go("https://mail.google.com/mail/data/u/1/")
 	
 nave gmail ebundy: 
 	browser.go("https://mail.google.com/mail/data/u/0/")
-			
+	

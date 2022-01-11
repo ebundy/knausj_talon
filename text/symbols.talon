@@ -1,47 +1,44 @@
 question [mark]: "?"  
 (downscore | underscore): "_"
 double dash: "--"
-(brace | left brace): "{"
-(rbrack | are brace | right brace): "}"
 triple quote: "'''"
-(triple grave | triple back tick | gravy):
+(triple grave | triple back tick ):
     insert("```")
-(dot dot | dotdot): ".."
+#(dot dot | dotdot): ".."
 ellipses: "..."
 (comma and | spamma): ", "
 plus: "+"
-shaft: "->"
-dub shaft: "=>"
+direction: "->"
+direction bis: "=>"
 new line: "\\n"
 carriage return: "\\r"
 line feed: "\\r\\n"
-empty escaped (dubstring|dub quotes):
-    '\\"\\"'
-    key(left)
-    key(left)
-(inside parent):
+
+end parent: ")"
+
+bit parent:
 	insert("()")
 	key(left)
-inside (bracket):
+bit (bracket):
 	insert("[]")
 	key(left)
-inside (brace):
+bit (brace):
 	insert("{}")
 	key(left)
-inside percent:
+bit percent:
 	insert("%%")
 	key(left)
-inside (quote):
+bit (quote):
 	insert("''")
 	key(left)
-inside (dubquote):
+bit (quote bis):
     insert('""')
 	key(left)
-inside (back ticks):
+bit (back ticks):
 	insert("``")
 	key(left)
 
-inside sterisk:
+bit sterisk:
 	insert("**")
 	key(left)
 angle that:
@@ -62,10 +59,10 @@ percent that:
 quote that:
     text = edit.selected_text()
     user.paste("'{text}'")
-(dubquote) that:
+(quote bis) that:
     text = edit.selected_text()
     user.paste('"{text}"')
-(grave | back tick) that:
+( back tick) that:
     text = edit.selected_text()
     user.paste('`{text}`')
 

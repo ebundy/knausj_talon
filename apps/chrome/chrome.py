@@ -1,4 +1,5 @@
 from talon import ctrl, ui, Module, Context, actions, clip, app
+from typing import Optional, Tuple, Literal
 
 ctx = Context()
 mod = Module()
@@ -28,8 +29,9 @@ class Actions:
     # first : We need to define  a user action function 
 	# second:  either we define the implementation here or we can define it 
 	#  or override it  in the context  (see below)
-    def move_cursor():   
-	    """to do
+#    def move_cursor_dav(position: Tuple[int,int]):   
+	def move_cursor_dav(x: int, y: int, click: bool=False):    
+	    """to do 
 		"""
 
 @ctx.action_class("user")
@@ -50,21 +52,25 @@ class user_actions:
     def tab_close_wrapper():
         actions.sleep("180ms")
         actions.app.tab_close()
-
+  
     def tab_duplicate():
         """Limitation: this will not work if the text in your address bar has been manually edited.
         Long-term we want a better shortcut from browsers.
         """
-        actions.browser.focus_address()
+        actions.browser.focus_address()  
         actions.sleep("180ms")
         actions.key("alt-enter")
 
-    def move_cursor():   
-        ctrl.mouse_move(106, 940)
-        position = ctrl.mouse_pos()
+    def move_cursor_dav(x: int, y: int, click: bool=False):   
+        position = (x,y)
+        ctrl.mouse_move(x,y)
+        #position = ctrl.mouse_pos() p
         print(f'position={position}')
         xx = type(position)
         print(f'position type={xx}')
+        actions.sleep("180ms")
+        if click == True:
+            ctrl.mouse_click(button=0)	   
 
 @ctx.action_class("browser")
 class browser_actions:
@@ -74,3 +80,4 @@ class browser_actions:
         actions.insert(url)
         actions.key("enter")
 
+ 
