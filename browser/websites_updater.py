@@ -1,7 +1,10 @@
 from talon import Module, Context
 
 mod = Module()
+mod.tag("picard", desc="basic commands for working with tabs within a window are available")
+
 cont = Context()
+
 @mod.action_class
 # @ctx.action_class("user")
 class user_actions:
@@ -16,3 +19,4 @@ class user_actions:
 			print('false')
 			cont.tags = []
 			
+		print('tags='+str(cont.tags))

@@ -8,6 +8,6 @@ do search:
 do basket: 
 	browser.go("https://www.picard.fr/on/demandware.store/Sites-picard-Site/fr_FR/Cart-Show")
 	
-	
+	 
 	
 
