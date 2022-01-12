@@ -87,28 +87,23 @@ indent [more]:
 clear line:
     edit.delete_line()
 
-clear left:
-    key(backspace)
 
-clear right:
-    key(delete)
-
-clear up:
-    edit.extend_line_up()
-    edit.delete()
-
-clear down:
-    edit.extend_line_down()
-    edit.delete()
+#clear up:
+#    edit.extend_line_up()
+#    edit.delete()
+#
+#clear down:
+#    edit.extend_line_down()
+#    edit.delete()
 
 clear word:
     edit.delete_word()
 
-clear word left:
+clear left:
     edit.extend_word_left()
     edit.delete()
 
-clear word right:
+clear right:
     edit.extend_word_right()
     edit.delete()
 

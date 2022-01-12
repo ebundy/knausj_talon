@@ -22,7 +22,7 @@ pastit: edit.paste()
 undo it: edit.undo()
 redo it: edit.redo()
 paste match: edit.paste_match_style()
-save: edit.save()
+^save$: edit.save()
 trash: key(backspace)    
 (indent): 
 	insert("  ") 
