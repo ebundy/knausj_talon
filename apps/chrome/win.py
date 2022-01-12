@@ -4,7 +4,7 @@ ctx.matches = r"""
 os: windows
 app: chrome
 """
-ctx.tags = ['browser', 'user.tabs']
+ctx.tags = ['browser', 'user.tabs', ]
 
 @ctx.action_class('browser')
 class BrowserActions:
