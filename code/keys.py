@@ -5,7 +5,7 @@ import sys
 
 default_alphabet = ("atos black clyde dave eric fox glen hank ivan jack kent " 
 					"luka mac nix opi pat quack rob smith timy "
-					"usher vick west ex yugi zoko"
+					"usher vick west xi yugi zoko"
                     ).split(" ")
 
 letters_string = "abcdefghijklmnopqrstuvwxyz"

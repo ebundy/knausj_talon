@@ -89,14 +89,7 @@ nave blog articles:
 	
 nave picard: 
 	browser.go("https://www.picard.fr/")
-	
-
-nave picard search: 
-	browser.go("https://www.picard.fr/")
-	sleep(3s)
-	user.move_cursor_dav(809, 237, 1)	   
-
-	
+		
 nave talon doc: 
 	browser.go("https://talon.wiki/unofficial_talon_docs/")
 	sleep(3s)
@@ -110,3 +103,5 @@ nave gmail David:
 nave gmail ebundy: 
 	browser.go("https://mail.google.com/mail/data/u/0/")
 	
+nave boursorama : 
+	browser.go("https://clients.boursorama.com/connexion/")
