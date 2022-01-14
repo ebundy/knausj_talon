@@ -1,0 +1,142 @@
+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
+
+debug the talon application
+
+*events.tail()
+ list events
+
+*>>> sim("f one")
+[1] "f one"
+   path: user/knausj_talon/misc/keys.talon
+   rule: "<user.function_key>"
+
+simulate a key input and provide the source code reference
+---------------------------------------------------------------------- 
+how to implement a new talon function for the terminal ?
+	
+*define a new function in the generic_terminal.talon file.
+example:
+grep [<user.text>] [pipe]:
+    user.grep(text or "") 
+
+*define a new function in the generic_terminal.py file.
+we can define no implementation or a default implementation.
+example (here with no implementation):
+def grep(command: str): "grep comment. good here for interface"
+
+*Define the implementation specific to the terminal.
+For example for windows terminal :
+Command_Processor.py 
+
+for example for Git bash terminal:
+mintty.py
+    def grep(command: str):
+        print('dodo!')
+        """kills the running command"""        
+        #actions.key("ctrl-c")
+        actions.insert(f"grep '{command}' -rni ")
+        if not command:
+          for _ in range(7):
+            actions.key("left")
+        #actions.key("enter")
+-----------------------------------------------------------------
+
+how to implement a new talon function  to select a range of lines in an editor  ?
+	
+*implement a jump_line() function in a foo.py file.
+ the select_range() of line_command.py uses under the hood that function to select a range
+-----------------------------------------------------------------
+code/ordinals.py
+
+ordinal_words = {
+    0: "zeroth",
+    1: "firstopoipopojij", #fake value
+    2: "second",
+    3: "third",
+    4: "fourth",
+    5: "fifth",
+	...
+
+------------------------------------------------
+mouse_grid/mouse_grid_open.talon
+
+tell : grid off
+->
+it hides the grid on the screen
+
+------------------------------------------------
+keys.py
+* default_alphabet
+
+* punctuation
+# `punctuation_words` is for words you want available BOTH in dictation and as key names in command mode.
+# `symbol_key_words` is for key names that should be available in command mode, but NOT during dictation.
+punctuation_words = {
+    # TODO: I'm not sure why we need these, I think it has something to do with
+    # Dragon. Possibly it has been fixed by later improvements to talon? -rntz
+    "`": "`",
+    ",": ",",  # <== these things
+    "back tick": "`",
+    "grave accent": "`",
+    "comma": ",",
+    "period": ".",
+    "full stop": ".",
+    "semicolon": ";",
+    "colon": ":",
+    "forward slash": "/",
+    "question mark": "?",
+    "exclamation mark": "!",
+    "exclamation point": "!",
+    "asterisk": "*",
+    "hash sign": "#",
+    "number sign": "#",
+    "percent sign": "%",
+    "at sign": "@",
+    "and sign": "&",
+    "ampersand": "&",
+
+    # Currencies
+    "dollar sign": "$",
+    "pound sign": "£",
+}
+
+
+--------------------------------------------------
+
+
+./misc/formatters.talon
+
+format <user.format_text>+$: user.insert_many(format_text_list)
+tell : string I am a boy
+->
+'I am a boy'
+
+tell : dubstring I am a boy
+->
+"I am a boy"
+
+tell : snake I am a boy
+->
+i_am_a_boy
+
+---------------------------------------------------------------
+language_modes.talon
+
+tell: force java
+->
+behave  change: java commands are recognized
+
+tell: force python
+->
+behave  change: python commands are recognized
+
+and so for for any language registered...
+
+tell:  clear language modes
+->
+behave  change: clear language modes
+
+-----------------------------------------------------------
+
+->i_am_a_boy
+ne-	>d->->->
