@@ -85,7 +85,9 @@ nave blog:
 	
 nave blog articles: 
 	browser.go("http://myjavaadventures.com/blog/wp-admin/edit.php")
-	user.move_cursor()
+	sleep(3s)
+	user.move_cursor_dav(1497, 400, 1)	   
+	
 	
 nave picard: 
 	browser.go("https://www.picard.fr/")

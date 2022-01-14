@@ -14,6 +14,7 @@ extension_lang_map = {
     ".gdb": "gdb",
     ".go": "go",
     ".h": "c",
+	".html": "html",
     ".hpp": "cplusplus",
     ".java": "java",
     ".js": "javascript",

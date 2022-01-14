@@ -195,3 +195,10 @@ cut line:
     edit.select_line()
     edit.cut()
 
+duplic:
+    edit.select_line()
+    edit.copy()
+	key("end")
+	key("enter")
+	edit.paste()
+	key("home")

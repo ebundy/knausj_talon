@@ -1,11 +1,7 @@
 question [mark]: "?"  
-(downscore | underscore): "_"
-double dash: "--"
 triple quote: "'''"
 (triple grave | triple back tick ):
     insert("```")
-#(dot dot | dotdot): ".."
-ellipses: "..."
 (comma and | spamma): ", "
 plus: "+"
 direction: "->"
@@ -41,6 +37,10 @@ bit (back ticks):
 bit sterisk:
 	insert("**")
 	key(left)
+bit angle:
+	insert("<>")
+	key(left)
+
 angle that:
     text = edit.selected_text()
     user.paste("<{text}>")

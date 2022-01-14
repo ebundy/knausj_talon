@@ -154,57 +154,36 @@ punctuation_words = {
     "question mark": "?",
     "exclamation mark": "!",
     "exclamation point": "!",
-    "asterisk": "*",
+    "sterisk": "*",
     "hash key": "#",
-    "number sign": "#",
-    "percent sign": "%",
-    "at sign": "@",
-    "and sign": "&",
-    "ampersand": "&",
-
+    #"percent key": "%",
+    "at key": "@",
     # Currencies
     "dollar sign": "$",
     "pound sign": "£",
 }
 symbol_key_words = {
-    #"dot": ".",
     "point": ".",
     "quote": "'",
     "apostrophe": "'",
-    #"L bracket": "[",
-    #"left bracket": "[",
-    #"bracket": "[",
-    #"R bracket": "]",
-    #"end bracket": "]",
     "slash": "/",
     #"backslash": "\\",
     "minus": "-",
     "dash": "-",
     "equals": "=",
     "plus": "+",
-    "tilde": "~",
+    "about": "~",
     "exclamation": "!",
-    "down score": "_",
-    "under score": "_",
+    "score": "_",
     "parent":"(",
-  #  "left parent": "(",
-    #"R parent": ")",
-#    "end parent": ")",    
-    #"brace": "{",
-    #"R brace": "}",
-    #"end brace": "}",
     "angle": "<",
-    "left angle": "<",
-    "less than": "<",
-    "rangle": ">",
-    "R angle": ">",
-    "right angle": ">",
-    "greater than": ">",
+    "end angle": ">",
     "sterix": "*",
     "hashkey": "#",
 	"hash key": "#",
     "percent": "%",
-  #  "caret": "^",
+    "hat key": "^",
+	"hatkey": "^",
     "amper": "&",
     #"pipe": "|",
     "quote bis": '"',
@@ -246,15 +225,16 @@ alternate_keys = {
     # "forward delete": "delete",
     #'junk': 'backspace',
     #"page up": "pageup",
-	"viewup": "pageup",
-	"viewdown": "pagedown",
+	#"viewup": "pageup",
+	#"viewdown": "pagedown",
 	#"bin": "enter",
 	#"con": "ctrl",
-	"tep": "tab"
+	"tep": "tab",
+	"scape": "escape"
 }
 
 
-# mac apparently doesn't have the menu key.
+# mac appare	ntly doesn't have the menu key.
 if app.platform in ("windows", "linux"):
     alternate_keys["menu key"] = "menu"
     alternate_keys["print screen"] = "printscr"
@@ -263,7 +243,7 @@ special_keys = {k: k for k in simple_keys}
 special_keys.update(alternate_keys)
 ctx.lists["self.special_key"] = special_keys
 ctx.lists["self.function_key"] = {
-    f"F {default_f_digits[i]}": f"f{i + 1}" for i in range(12)
+    f"Fun {default_f_digits[i]}": f"f{i + 1}" for i in range(12)
 }
 
 
