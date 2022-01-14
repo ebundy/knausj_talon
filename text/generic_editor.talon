@@ -42,10 +42,10 @@ select line:
 select all:
     edit.select_all()
 
-ex one left:
+step left:
     edit.extend_left()
 
-ex one right:
+step right:
     #actions.find('edit.extend_right')
     edit.extend_right()
  

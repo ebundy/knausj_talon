@@ -192,17 +192,17 @@ class CodeActions:
 @ctx.action_class("edit")
 class EditActions:
     # talon edit actions
-    def copy():
-        actions.user.idea("action EditorCopy")
-
-    def cut():
-        actions.user.idea("action EditorCut")
-
-    def delete():
-        actions.user.idea("action EditorBackSpace")
-
-    def paste():
-        actions.user.idea("action EditorPaste")
+#   def copy():
+#       actions.user.idea("action EditorCopy")
+#
+#   def cut():
+#       actions.user.idea("action EditorCut")
+#
+#   def delete():
+#       actions.user.idea("action EditorBackSpace")
+#
+#   def paste():
+#       actions.user.idea("action EditorPaste")
 
     def find_next():
         actions.user.idea("action FindNext")
@@ -213,7 +213,7 @@ class EditActions:
     def find(text: str = None):
         actions.user.idea("action Find")
 
-    def line_clone():
+#    def line_clone():
         actions.user.idea("action EditorDuplicate")
 
     def line_swap_down():
@@ -228,37 +228,40 @@ class EditActions:
     def indent_less():
         actions.user.idea("action EditorUnindentSelection")
 
-    def select_line(n: int = None):
-        actions.user.idea("action EditorSelectLine")
-
-    def select_word():
-        actions.user.idea("action EditorSelectWord")
-
-    def select_all():
-        actions.user.idea("action $SelectAll")
-
-    def file_start():
-        actions.user.idea("action EditorTextStart")
-
-    def file_end():
-        actions.user.idea("action EditorTextEnd")
-
-    def extend_file_start():
-        actions.user.idea("action EditorTextStartWithSelection")
-
-    def extend_file_end():
-        actions.user.idea("action EditorTextEndWithSelection")
-    
-    def extend_word_left():
-        actions.user.idea("action EditorPreviousWordWithSelection")
-    def extend_word_right():
-        actions.user.idea("action EditorNextWordWithSelection")
+#    def select_line(n: int = None):
+#        actions.user.idea("action EditorSelectLine")
+#
+#    def select_word():
+#        actions.user.idea("action EditorSelectWord")
+#
+#    def select_all():
+#        actions.user.idea("action $SelectAll")
+#
+#    def file_start():
+#        actions.user.idea("action EditorTextStart")
+#
+    #def file_end():
+     ##    actions.user.idea("action EditorTextEnd")
+#    def extend_file_start():
+#        actions.user.idea("action EditorTextStartWithSelection")
+#
+#    def extend_file_end():
+#        actions.user.idea("action EditorTextEndWithSelection")
+#    
+#    def extend_word_left():
+#        actions.user.idea("action EditorPreviousWordWithSelection")
+#    def extend_word_right():
+#        actions.user.idea("action EditorNextWordWithSelection")
 
     def jump_line(n: int):
-        actions.user.idea("goto {} 0".format(n))
+        #actions.user.idea("goto {} 0".format(n))
         # move the cursor to the first nonwhite space character of the line
-        actions.user.idea("action EditorLineEnd")
-        actions.user.idea("action EditorLineStart")
+        #dmactions.user.idea("action EditorLineEnd")
+        #actions.user.idea("action EditorLineStart")
+        actions.key("ctrl-g")
+        actions.sleep("400ms")        
+        actions.insert(str(n))
+        actions.key("enter")
 
 
 @ctx.action_class("win")
@@ -286,14 +289,6 @@ class UserActions:
 
     def extend_until_line(line: int):
         actions.user.idea("extend {}".format(line))
-
-    def select_range(line_start: int, line_end: int):
-        # if it's a single line, select the entire thing including the ending new-line5
-        if line_start == line_end:
-            actions.user.idea("goto {} 0".format(line_start))
-            actions.user.idea("action EditorSelectLine"),
-        else:
-            actions.user.idea("range {} {}".format(line_start, line_end))
 
     def extend_camel_left():
         actions.user.idea("action EditorPreviousWordInDifferentHumpsModeWithSelection")

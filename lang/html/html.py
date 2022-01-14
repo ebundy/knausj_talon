@@ -17,9 +17,7 @@ ctx.lists["self.section_heading_elements"] = {
 	"heading two": "h2",
 	"heading three": "h3",
     "bold": "b",
-    "thread": "Thread",
-    "exception": "Exception",
-    
-	
-}
+}
 	# , <a href="#shell-args">Shell Args</a>
+	
+	
