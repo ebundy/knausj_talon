@@ -30,7 +30,7 @@ class Actions:
     def terminal_kill_all():
         """kills the running command"""
     
-    def grep(command: str): "grep comment. good here for interface"
+    def grep(command: str, args: str): "grep comment. good here for interface"
 	
     def find_by_name(command: str): "grep comment. good here for interface"	
 	

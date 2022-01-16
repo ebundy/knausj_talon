@@ -21,7 +21,10 @@ copy paste:
     edit.paste()
 	
 grep [<user.text>] [pipe]:
-    user.grep(text or "") 
+    user.grep(text or "",text or "") 
+
+grep base [<user.text>] [pipe]:
+    user.grep(text or "", "-i") 
 	
 find by name [<user.text>] [pipe]:
     user.find_by_name(text or "") 

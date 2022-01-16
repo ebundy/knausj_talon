@@ -3,17 +3,17 @@ from typing import Set
 from talon import Module, Context, actions, app
 import sys
 
-default_alphabet = ("atos black clyde dave eric fox glen hank ivan jack kent " 
-					"luka mac nix opi pat quack rob smith timy "
+default_alphabet = ("atos black clyde dale eric fox glen hank ivan jack kent " 
+					"luka mac nix opi pat quack rob smith tex "
 					"usher vick west xi yugi zoko"
                     ).split(" ")
 
 letters_string = "abcdefghijklmnopqrstuvwxyz"
 
-default_digits = "zero one two three four five six seven eight nine".split(" ")
+default_digits = "zero one two tree four five six seven eight nine".split(" ")
 numbers = [str(i) for i in range(10)]
-numbers_one_to_nine = "zero one two three four five six seven eight nine".split(" ")
-default_f_digits = "one two three four five six seven eight nine ten eleven twelve".split(
+numbers_one_to_nine = "zero one two tree four five six seven eight nine".split(" ")
+default_f_digits = "one two tree four five six seven eight nine ten eleven twelve".split(
     " "
 )
 
@@ -146,14 +146,14 @@ punctuation_words = {
     "back tick": "`",
     "grave accent": "`",
     "comma": ",",
-    "period": ".",
+    #?!"period": ".",
     "full stop": ".",
     "semicolon": ";",
     
     "forward slash": "/",
     "question mark": "?",
     "exclamation mark": "!",
-    "exclamation point": "!",
+    
     "sterisk": "*",
     "hash key": "#",
     #"percent key": "%",
