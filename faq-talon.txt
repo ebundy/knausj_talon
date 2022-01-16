@@ -9,9 +9,24 @@ debug the talon application
 [1] "f one"
    path: user/knausj_talon/misc/keys.talon
    rule: "<user.function_key>"
-
 simulate a key input and provide the source code reference
+
+
+*ui.apps()
+list application in the current OS
+
+*actions.find("foo string")
+find actions which the name,the parameters,The documentation  all the body of the function match with the string passed as parameter
+
+*actions.list("prefix")
+find actions which the prefix matches with the prefix passed as parameter
+ex: actions.list("user")
 ---------------------------------------------------------------------- 
+how to call an action forma python file:
+built in action-> actions.sleep('1s')
+user action-> actions.user.move_cursor_dav(677, 425, 1)	   
+---------------------------------------------------------------------- 
+
 how to implement a new talon function for the terminal ?
 	
 *define a new function in the generic_terminal.talon file.

@@ -35,7 +35,8 @@ settings():
     user.mouse_wheel_horizontal_amount = 40
 
     # Mouse grid and friends put the number one on the bottom left (vs on the top left)
-    user.grids_put_one_bottom_left = 1
+	# 0=natural order  1=computer order
+    user.grids_put_one_bottom_left = 0
 
     # The number of lines of command history to display by default
     user.command_history_display = 20

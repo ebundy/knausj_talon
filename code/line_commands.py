@@ -22,7 +22,7 @@ class Actions:
     def select_range(line_start: int, line_end: int):
         """Selects lines from line_start to line line_end"""
         actions.edit.jump_line(line_start)
-        actions.sleep("500ms")
+        
         actions.edit.extend_line_end()
         
         number_of_lines = line_end - line_start

@@ -149,7 +149,7 @@ punctuation_words = {
     "period": ".",
     "full stop": ".",
     "semicolon": ";",
-    "colon": ":",
+    
     "forward slash": "/",
     "question mark": "?",
     "exclamation mark": "!",
@@ -188,7 +188,7 @@ symbol_key_words = {
     #"pipe": "|",
     "quote bis": '"',
  #   "double quote": '"',
-
+	"colon": ":",
     # Currencies
     "dollar": "$",
     #"pound": "£",

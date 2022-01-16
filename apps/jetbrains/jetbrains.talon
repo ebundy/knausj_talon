@@ -1,4 +1,4 @@
-# Requires https://plugins.jetbrains.com/plugin/10504-voice-code-idea
+# Requires https://plugins.jetbrains.com/plugin/10504-voice-code-idea40
 app: jetbrains
 -
 tag(): user.line_commands
@@ -14,11 +14,7 @@ smart: user.idea("action SmartTypeCompletion")
 (done | finish): user.idea("action EditorCompleteStatement")
 # Copying
 grab <number>: user.idea_grab(number)
-# Actions
-(action | please): user.idea("action GotoAction")
-(action | please) <user.text>:
-    user.idea("action GotoAction")
-    insert(text)
+
 # Refactoring
 refactor: user.idea("action Refactorings.QuickListPopupAction")
 refactor <user.text>:
@@ -39,22 +35,24 @@ fix imports: user.idea("action OptimizeImports")
 #navigation
 (go declaration | follow): user.idea("action GotoDeclaration")
 go implementation: user.idea("action GotoImplementation")
-go usage: user.idea("action FindUsages")
+go usage: user.idea("action 4Usages")
 go type: user.idea("action GotoTypeDeclaration")
 go test: user.idea("action GotoTest")
 go back: user.idea("action Back")
 go forward: user.idea("action Forward")
 # Search
-find (everywhere | all): user.idea("action SearchEverywhere")
-find (everywhere | all) <user.text> [over]:
+find action : 
+	key("ctrl-alt-a")
+
+find action <user.text> :
     user.idea("action SearchEverywhere")
     sleep(500ms)
     insert(text)
-(search | find) class: user.idea("action GotoClass")
-(search | find) file: user.idea("action GotoFile")
-(search | find) path: user.idea("action FindInPath")
-(search | find) symbol: user.idea("action GotoSymbol")
-(search | find) symbol <user.text>$:
+find class: user.idea("action GotoClass")
+find file: 	key("ctrl-shift-r")
+find path: user.idea("action FindInPath")
+find symbol: user.idea("action GotoSymbol")
+find symbol <user.text>$:
     user.idea("action GotoSymbol")
     insert(text)
     key("enter")
@@ -156,6 +154,7 @@ toggle floating: user.idea("action ToggleFloatingMode")
 toggle windowed: user.idea("action ToggleWindowedMode")
 toggle split: user.idea("action ToggleSideMode")
 # Settings, not windows
+settings: key("ctrl-alt-s")
 toggle tool buttons: user.idea("action ViewToolButtons")
 toggle toolbar: user.idea("action ViewToolBar")
 toggle status [bar]: user.idea("action ViewStatusBar")

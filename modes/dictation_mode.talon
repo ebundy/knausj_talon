@@ -138,7 +138,7 @@ formatted <user.format_text>:
 scratch that: user.clear_last_phrase()
 scratch selection: edit.delete()
 select that: user.select_last_phrase()
-spell <user.letters>: insert("{letters}") 
+#spell <user.letters>: insert("{letters}") 
 #spell that <user.formatters> <user.letters>:
     #result = user.formatted_text(letters, formatters)
  #	#   user.dictation_insert_raw(result)

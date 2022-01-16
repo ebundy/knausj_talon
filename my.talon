@@ -40,5 +40,9 @@ hold off :
 	key("ralt:up")
 	key("shift:up")
 	key("ctrl:up")
+
 run repl:
 	user.run_repl()
+	
+open downloads:
+	user.open_downloads()	

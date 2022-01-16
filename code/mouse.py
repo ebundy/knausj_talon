@@ -239,7 +239,7 @@ class Actions:
             toggle_control(True)
             control_mouse_forced = True
 
-    def copy_mouse_position():
+    def copy_mouse_position(): 
         """Copy the current mouse position coordinates"""
         position = ctrl.mouse_pos()
         clip.set_text((repr(position)))
@@ -249,7 +249,18 @@ class Actions:
         rect = ui.active_window().rect
         ctrl.mouse_move(rect.left + (rect.width / 2), rect.top + (rect.height / 2))
 
-
+    def move_cursor_dav(x: int, y: int, click: bool=False):   
+        """todo"""
+        position = (x,y) 
+        ctrl.mouse_move(x,y)
+        #position = ctrl.mouse_pos() p
+        print(f'position={position}')
+        xx = type(position)
+        print(f'position type={xx}')
+        actions.sleep("180ms")
+        if click == True:
+            ctrl.mouse_click(button=0)	   
+	
 def show_cursor_helper(show):
     """Show/hide the cursor"""
     if app.platform == "windows":

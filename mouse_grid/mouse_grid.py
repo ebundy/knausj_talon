@@ -161,7 +161,7 @@ class MouseSnapNine:
 
         if self.count < 2:
             paint.color = "00ff007f"
-            for which in range(1, 10):
+            for which in range(1, 1):
                 gap = 35 - self.count * 10
                 if not self.active:
                     gap = 45
@@ -172,6 +172,7 @@ class MouseSnapNine:
             paint.color = "ff0000ff"
         else:
             paint.color = "000000ff"
+        #count >= 2 Means  that the user has chosen at least two times a number in the grid
         if self.count >= 2:
             aspect = self.rect.width / self.rect.height
             if aspect >= 1:
@@ -257,8 +258,10 @@ mg = MouseSnapNine()
 class GridActions:
     def grid_activate():
         """Show mouse grid"""
-        if not mg.mcanvas:
+        if not mg.mcanvas: 
+            print('not canvas ')		
             mg.setup()
+        print('call show function')		        
         mg.show()
         ctx.tags = ["user.mouse_grid_showing"]
 
@@ -293,3 +296,4 @@ class GridActions:
         """Close the active grid"""
         ctx.tags = []
         mg.close()
+
