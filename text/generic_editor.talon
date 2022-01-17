@@ -204,7 +204,7 @@ duplic:
 	key("home")
 	
 change word:
-    edit.select_word()
+    edit.select_line()
     edit.copy()
 	key("end")
 	key("enter")

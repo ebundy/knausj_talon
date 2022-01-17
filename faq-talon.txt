@@ -1,5 +1,3 @@
-
-
 debug the talon application
 
 *events.tail()
