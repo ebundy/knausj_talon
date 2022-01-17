@@ -148,25 +148,6 @@ class UserActions:
         actions.insert("y")
         actions.key("enter")
 
-    def grep(command: str, args: str):
-        print('dodo!')
-        if not args:
-           args = '-rni'		
-        """kills the running command"""        
-        #actions.key("ctrl-c")
-        actions.insert(f"grep '{command}' {args} ")
-        if not command:
-          nb_shift = len(args) + 3
-          for _ in range(nb_shift):
-            actions.key("left")
-        #actions.key("enter")
-
-    def find_by_name(command: str):
-        actions.insert(f"find -name '{command}'")
-        if not command:
-          for _ in range(1):
-            actions.key("left")	
-			
     def script_copy_last_line():        
        actions.next()
        print('(minty)script_copy_last_line')

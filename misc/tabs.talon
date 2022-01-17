@@ -1,8 +1,8 @@
 tag: user.tabs
 -
-tep (new): app.tab_open()
-tep (prev): app.tab_previous()
-tep next: app.tab_next()
+tep prev | teprev: app.tab_previous()
+tep nex | tepnex  | tepnix | tep nix: app.tab_next()
+tep new: app.tab_open()		
 tep close: user.tab_close_wrapper()
 tep (reopen): app.tab_reopen()
 go tep <number>: user.tab_jump(number)

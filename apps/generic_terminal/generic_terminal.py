@@ -1,6 +1,7 @@
-from talon import app, Module, Context, actions, ui, imgui, settings, app, registry, ctrl
+from talon import Module, actions, ctrl
 
 mod = Module()
+
 
 @mod.action_class
 class Actions:
@@ -8,7 +9,7 @@ class Actions:
 
     def terminal_list_directories():
         """Lists directories"""
-        
+
     def terminal_list_all_directories():
         """Lists all directories including hidden"""
 
@@ -29,22 +30,34 @@ class Actions:
 
     def terminal_kill_all():
         """kills the running command"""
-    
-    def grep(command: str, args: str): "grep comment. good here for interface"
-	
-    def find_by_name(command: str): "grep comment. good here for interface"	
-	
-    def script_copy_last_line() : 
-       """to document later"""
-       actions.user.grid_activate()
-       actions.sleep(0.3) 
-       actions.user.grid_narrow_list([1,1])
-       actions.sleep(0.3) 
-       actions.user.grid_close()	   
-       ctrl.mouse_click(button=0)	   
-       ctrl.mouse_click(button=0)	   
-       ctrl.mouse_click(button=0)	   
-       actions.sleep(0.3)  
-       actions.edit.copy()
-	   #sleep(0.5)
-	   #key("grid one") 
+
+    def grep(args: str):
+        """grep comment. good here for interface"""
+        print('dodo!')
+        actions.insert(f"grep '' {args} ")
+        nb_shift = len(args) + 3
+        for _ in range(nb_shift):
+            actions.key("left")
+        # actions.key("enter")
+
+    def find_by_name(command: str):
+        """kills the running command"""
+        actions.insert(f"find -name '{command}'")
+        if not command:
+            for _ in range(1):
+                actions.key("left")
+
+    def script_copy_last_line():
+        """to document later"""
+        actions.user.grid_activate()
+        actions.sleep(0.3)
+        actions.user.grid_narrow_list([1, 1])
+        actions.sleep(0.3)
+        actions.user.grid_close()
+        ctrl.mouse_click(button=0)
+        ctrl.mouse_click(button=0)
+        ctrl.mouse_click(button=0)
+        actions.sleep(0.3)
+        actions.edit.copy()
+        # sleep(0.5)
+        # key("grid one")

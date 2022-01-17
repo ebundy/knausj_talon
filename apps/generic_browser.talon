@@ -79,6 +79,9 @@ nave gitlab talon:
 	
 nave gitlab my talon: 
 	browser.go("https://github.com/ebundy/knausj_talon/")
+
+nave gitlab tokens: 
+	browser.go("https://github.com/settings/tokens")
 	
 nave blog: 
 	browser.go("http://myjavaadventures.com/blog/wp-admin/")

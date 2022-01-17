@@ -202,3 +202,11 @@ duplic:
 	key("enter")
 	edit.paste()
 	key("home")
+	
+change word:
+    edit.select_word()
+    edit.copy()
+	key("end")
+	key("enter")
+	edit.paste()
+	key("home")	
