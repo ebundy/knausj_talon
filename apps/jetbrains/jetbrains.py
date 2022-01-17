@@ -1,11 +1,4 @@
-import os
-import os.path
-import requests
-import time
-from pathlib import Path
-from talon import ctrl, ui, Module, Context, actions, clip
-import tempfile
-
+from talon import Module, Context, actions
 
 ctx = Context()
 mod = Module()
@@ -41,19 +34,20 @@ ctx.matches = r"""
 app: jetbrains
 """
 
+
 @ctx.action_class("app")
 class AppActions:
     def tab_next():
-        actions.user.idea("action NextTab")
+        actions.key("ctrl-pagedown")
 
     def tab_previous():
-        actions.user.idea("action PreviousTab")
+        actions.key("ctrl-pageup")
 
     def tab_close():
-        actions.user.idea("action CloseContent")
+        actions.key("ctrl-w")
 
     def tab_reopen():
-        actions.user.idea("action ReopenClosedTab")
+        actions.key("ctrl-shift-x")
 
 
 @ctx.action_class("code")
@@ -76,7 +70,7 @@ class EditActions:
     def find(text: str = None):
         actions.user.idea("action Find")
 
-#    def line_clone():
+        #    def line_clone():
         actions.user.idea("action EditorDuplicate")
 
     def line_swap_down():
@@ -91,37 +85,38 @@ class EditActions:
     def indent_less():
         actions.user.idea("action EditorUnindentSelection")
 
-#    def select_line(n: int = None):
-#        actions.user.idea("action EditorSelectLine")
-#
-#    def select_word():
-#        actions.user.idea("action EditorSelectWord")
-#
-#    def select_all():
-#        actions.user.idea("action $SelectAll")
-#
-#    def file_start():
-#        actions.user.idea("action EditorTextStart")
-#
-    #def file_end():
-     ##    actions.user.idea("action EditorTextEnd")
-#    def extend_file_start():
-#        actions.user.idea("action EditorTextStartWithSelection")
-#
-#    def extend_file_end():
-#        actions.user.idea("action EditorTextEndWithSelection")
-#    
-#    def extend_word_left():
-#        actions.user.idea("action EditorPreviousWordWithSelection")
-#    def extend_word_right():
-#        actions.user.idea("action EditorNextWordWithSelection")
+    #    def select_line(n: int = None):
+    #        actions.user.idea("action EditorSelectLine")
+    #
+    #    def select_word():
+    #        actions.user.idea("action EditorSelectWord")
+    #
+    #    def select_all():
+    #        actions.user.idea("action $SelectAll")
+    #
+    #    def file_start():
+    #        actions.user.idea("action EditorTextStart")
+    #
+    # def file_end():
+    ##    actions.user.idea("action EditorTextEnd")
+    #    def extend_file_start():
+    #        actions.user.idea("action EditorTextStartWithSelection")
+    #
+    #    def extend_file_end():
+    #        actions.user.idea("action EditorTextEndWithSelection")
+    #
+    #    def extend_word_left():
+    #        actions.user.idea("action EditorPreviousWordWithSelection")
+    #    def extend_word_right():
+    #        actions.user.idea("action EditorNextWordWithSelection")
 
-    def jump_line(n: int):        
+    def jump_line(n: int):
         actions.key("ctrl-g")
-        actions.sleep("400ms")        
+        actions.sleep("400ms")
         actions.insert(str(n))
         actions.key("enter")
-        actions.sleep("300ms")		
+        actions.sleep("300ms")
+
 
 @ctx.action_class("win")
 class WinActions:
@@ -167,19 +162,26 @@ class UserActions:
     # multi-cursor tag functions
     def multi_cursor_enable():
         actions.skip()
+
     def multi_cursor_disable():
         actions.key("escape")
+
     def multi_cursor_add_above():
         actions.user.idea("action EditorCloneCaretAbove")
+
     def multi_cursor_add_below():
         actions.user.idea("action EditorCloneCaretBelow")
+
     def multi_cursor_select_fewer_occurrences():
         actions.user.idea("action UnselectPreviousOccurrence")
+
     def multi_cursor_select_more_occurrences():
         actions.user.idea("action SelectNextOccurrence")
+
     # def multi_cursor_skip_occurrence():
     def multi_cursor_select_all_occurrences():
         actions.user.idea("action SelectAllOccurrences")
+
     def multi_cursor_add_to_line_ends():
         actions.user.idea("action EditorAddCaretPerSelectedLine")
 
@@ -191,15 +193,20 @@ class UserActions:
     # def split_window_up():
     def split_window_vertically():
         actions.user.idea("action SplitVertically")
+
     def split_window_horizontally():
         actions.user.idea("action SplitHorizontally")
+
     def split_flip():
         actions.user.idea("action ChangeSplitOrientation")
+
     # def split_window():
     def split_clear():
         actions.user.idea("action Unsplit")
+
     def split_clear_all():
         actions.user.idea("action UnsplitAll")
+
     def split_next():
         actions.user.idea("action NextSplitter")
     # def split_last():

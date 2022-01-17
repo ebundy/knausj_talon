@@ -24,7 +24,10 @@ how to call an action forma python file:
 built in action-> actions.sleep('1s')
 user action-> actions.user.move_cursor_dav(677, 425, 1)	   
 ---------------------------------------------------------------------- 
+how to press keys  simultaneously  form a talon file:
+key(ctrl-alt-insert)
 
+----------------------------------------------------------------------
 how to implement a new talon function for the terminal ?
 	
 *define a new function in the generic_terminal.talon file.

@@ -14,11 +14,12 @@ sixtime| six time: core.repeat_command(6)
 seventime| seven time: core.repeat_command(7)
 eighttime| eight time: core.repeat_command(8)
 ninetime| nine time: core.repeat_command(9)
-tintime| tin time: core.repeat_command(10)
+tentime| ten time: core.repeat_command(10)
 
 
 
 #repeat that <number_small> [times]: core.repeat_command(number_small)
+
 
 
 

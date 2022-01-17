@@ -13,7 +13,7 @@ letters_string = "abcdefghijklmnopqrstuvwxyz"
 default_digits = "zero one two three four five six seven eight nine".split(" ")
 numbers = [str(i) for i in range(10)]
 numbers_one_to_nine = "zero one two three four five six seven eight nine".split(" ")
-default_f_digits = "one two three four five six seven eight nine ten eleven twelve".split(
+default_f_digits = "one two three four five six seven eight nine decade eleven twelve".split(
     " "
 )
 

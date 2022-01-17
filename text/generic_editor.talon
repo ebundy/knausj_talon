@@ -39,7 +39,7 @@ go top:
 select line:
     edit.select_line()
     
-select all:
+select all|selectall:
     edit.select_all()
 
 step left:

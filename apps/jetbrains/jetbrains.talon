@@ -41,7 +41,7 @@ go test: user.idea("action GotoTest")
 go back: user.idea("action Back")
 go forward: user.idea("action Forward")
 # Search
-find action : 
+find action :
 	key("ctrl-alt-a")
 
 find action <user.text> :
@@ -108,7 +108,8 @@ create sibling <user.text> [over]:
     user.idea("action NewElementSamePlace")
     sleep(500ms)
     insert(text)
-create file: user.idea("action NewElement")
+new file| newfile:
+    key(ctrl-alt-insert)
 create file <user.text> [over]:
     user.idea("action NewElement")
     sleep(500ms)
