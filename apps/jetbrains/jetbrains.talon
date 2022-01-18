@@ -108,7 +108,7 @@ create sibling <user.text> [over]:
     user.idea("action NewElementSamePlace")
     sleep(500ms)
     insert(text)
-new file| newfile:
+new file| new   file:
     key(ctrl-alt-insert)
 create file <user.text> [over]:
     user.idea("action NewElement")
@@ -241,7 +241,18 @@ refactor next <user.text> [over]: user.idea("find next {text}, action Refactorin
 replace last <user.text> [over]: user.idea("find prev {text}, action EditorPaste")
 replace next <user.text> [over]: user.idea("find next {text}, action EditorPaste")
 select last <user.text> [over]: user.idea("find prev {text}")
-select next <user.text> [over]: user.idea("find next {text}")
+
+#David key selection
+find in : key("ctrl-h")
+
+find : key("ctrl-f")
+replace : key("ctrl-r")
+next     :  key("ctrl-l")
+previous :  key("ctrl-shift-l")
+
+select next :  key("alt-j")
+unselect :  key("shift-alt-j")
+#and David key selection
 
 select camel left: user.extend_camel_left()
 select camel right: user.extend_camel_right()

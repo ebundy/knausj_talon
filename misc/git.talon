@@ -35,10 +35,10 @@ git fetch all: "git fetch --all\n"
 git fetch <user.text>: "git fetch {text}"
 git fetch prune: "git fetch --prune\n"
 git in it: "git init\n"
-git log all: "git log\n"
-git log all changes: "git log -c\n"
-git log: "git log "
-git log changes: "git log -c "
+^git log all: "git log\n"
+^git log all changes: "git log -c\n"
+^git log$: "git log "
+#^git log changes: "git log -c "
 git merge: "git merge "
 git merge <user.text>:"git merge {text}"
 git move: "git mv "
@@ -117,15 +117,17 @@ git commit highlighted:
     edit.paste()
     insert("\ngit commit\n")
 
-git config list:
-	insert("git config -l")
-	key(enter)
-	
+git config:
+	insert("git config ")
 
-git config list local:
-	insert("git config -l --local")
-	key(enter)
-	
-git config list global:
-	insert("git config -l --global")
-	key(enter)	
+git config list:
+	insert("git config -l ")
+
+git global:
+    insert(" --global ")
+
+git local:
+    insert(" --local ")
+
+git credential store:
+	insert(" credential.helper 'store --file ~/.my-credentials' ")

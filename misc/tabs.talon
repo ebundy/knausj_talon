@@ -1,7 +1,7 @@
 tag: user.tabs
 -
 tep prev | teprev: app.tab_previous()
-tep nex | tepnex  | tepnix | tep nix: app.tab_next()
+tep nex | tepnex  | tepnix | tep next: app.tab_next()
 tep new: app.tab_open()		
 tep close | tepclose: user.tab_close_wrapper()
 tep (reopen): app.tab_reopen()

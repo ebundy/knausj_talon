@@ -14,5 +14,4 @@ bit {user.section_heading_elements}:
     insert("<{section_heading_elements}>") 
 	insert("</{section_heading_elements}>") 
 	user.move_cursor_before_word("</{section_heading_elements}>")
-	
-	
+

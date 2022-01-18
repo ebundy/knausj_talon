@@ -1,6 +1,6 @@
 tag: browser
 -
-go address: browser.focus_address()
+go address | goaddress: browser.focus_address()
 copy address | copyaddress:
     browser.focus_address()
     sleep(50ms)
