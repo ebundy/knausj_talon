@@ -242,10 +242,18 @@ replace last <user.text> [over]: user.idea("find prev {text}, action EditorPaste
 replace next <user.text> [over]: user.idea("find next {text}, action EditorPaste")
 select last <user.text> [over]: user.idea("find prev {text}")
 
+#misc
+column mode : key("alt-shift-insert")
+
+
 #David key selection
 find in : key("ctrl-h")
 
-find : key("ctrl-f")
+find [<user.text>] :
+    key("ctrl-f")
+    sleep(500ms)
+    insert(text or "")
+
 replace : key("ctrl-r")
 next     :  key("ctrl-l")
 previous :  key("ctrl-shift-l")

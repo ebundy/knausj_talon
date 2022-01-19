@@ -23,7 +23,7 @@ class EditActions:
 class Actions:
     def paste(text: str):
         """Pastes text and preserves clipboard"""
-
+        #print(f'paste {str}')
         with clip.revert():
             clip.set_text(text)
             actions.edit.paste()

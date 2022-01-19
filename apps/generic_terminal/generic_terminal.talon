@@ -20,11 +20,14 @@ copy paste:
     sleep(50ms)
     edit.paste()
 	
-grep [pipe]:
-    user.grep("-rni") 
+grep  [<user.text>]:
+    user.grep("-rni", text or "")
 
-grep base [pipe]:
-    user.grep("-i") 
+grep include  [<user.text>]:
+    user.grep("--include='*.' -rni", text or "")
+
+grep base  [<user.text>]:
+    user.grep("-i", text or "")
 	
 find by name [<user.text>] [pipe]:
     user.find_by_name(text or "") 

@@ -6,7 +6,8 @@ settings():
 #phrase <user.text> over: user.insert_formatted(text, "NOOP")
 {user.prose_formatter} <user.prose>$: user.insert_formatted(prose, prose_formatter)
 {user.prose_formatter} <user.prose> over: user.insert_formatted(prose, prose_formatter)
-format <user.format_text>+$: user.insert_many(format_text_list)
+# basic command
+<user.format_text>+$: user.insert_many(format_text_list)
 <user.format_text>+ over: user.insert_many(format_text_list)
 <user.formatters> that: user.formatters_reformat_selection(user.formatters)
 word <user.word>: user.insert_formatted(user.word, "NOOP")

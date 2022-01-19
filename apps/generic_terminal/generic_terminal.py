@@ -31,14 +31,16 @@ class Actions:
     def terminal_kill_all():
         """kills the running command"""
 
-    def grep(args: str):
+    def grep(args: str, search: str):
         """grep comment. good here for interface"""
         print('dodo!')
-        actions.insert(f"grep '' {args} ")
-        nb_shift = len(args) + 3
-        for _ in range(nb_shift):
-            actions.key("left")
-        # actions.key("enter")
+
+        actions.insert(f"grep '{search}' {args} ")
+        if not search:
+            nb_shift = len(args) + 3
+            for _ in range(nb_shift):
+                actions.key("left")
+            # actions.key("enter")
 
     def find_by_name(command: str):
         """kills the running command"""

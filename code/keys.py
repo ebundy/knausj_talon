@@ -1,11 +1,8 @@
-from typing import Set
+from talon import Module, Context, app
 
-from talon import Module, Context, actions, app
-import sys
-
-default_alphabet = ("atos black clyde dany eric fox glen hank ivan jack kent " 
-					"luka mac nix opi pat quack rob smith tex "
-					"usher vick west xi yugi zoko"
+default_alphabet = ("atos black clyde dany eric fox glen hank ivan jack kent "
+                    "luka mac nix opi pat quack rob smith tex "
+                    "usher vick west xi yugi zoko"
                     ).split(" ")
 
 letters_string = "abcdefghijklmnopqrstuvwxyz"
@@ -85,7 +82,7 @@ def any_alphanumeric_key(m) -> str:
 
 @mod.capture(
     rule="( <self.letter> | <self.number_key> | <self.symbol_key> "
-    "| <self.arrow_key> | <self.function_key> | <self.special_key> )"
+         "| <self.arrow_key> | <self.function_key> | <self.special_key> )"
 )
 def unmodified_key(m) -> str:
     "A single key with no modifiers"
@@ -117,24 +114,23 @@ def letters(m) -> str:
 ctx = Context()
 modifier_keys = {
     # If you find 'alt' is often misrecognized, try using 'alter'.
-    "at": "alt",  #'alter': 'alt',
-    "coun": "ctrl",  #'troll':   'ctrl',
-    "con": "ctrl",  #'troll':   'ctrl',
-	"shift": "shift",  #'sky':     'shift',
+    "at": "alt",  # 'alter': 'alt',
+    "coun": "ctrl",  # 'troll':   'ctrl',
+    "con": "ctrl",  # 'troll':   'ctrl',
+    "shift": "shift",  # 'sky':     'shift',
     "super": "super",
 }
-if app.platform  == "mac":
+if app.platform == "mac":
     modifier_keys["command"] = "cmd"
     modifier_keys["option"] = "alt"
 ctx.lists["self.modifier_key"] = modifier_keys
 alphabet = dict(zip(default_alphabet, letters_string))
 ctx.lists["self.letter"] = alphabet
 ctx.lists["self.numbers_one_to_nine"] = {
-      "one": "1",
-	  "one three four": "134",
-	  "one three two": "132",
+    "one": "1",
+    "one three four": "134",
+    "one three two": "132",
 }
-
 
 # `punctuation_words` is for words you want available BOTH in dictation and as key names in command mode.
 # `symbol_key_words` is for key names that should be available in command mode, but NOT during dictation.
@@ -146,28 +142,30 @@ punctuation_words = {
     "back tick": "`",
     "grave accent": "`",
     "comma": ",",
-    #?!"period": ".",
+    # ?!"period": ".",
     "full stop": ".",
+    "point": ".",
     "semicolon": ";",
-    
+
     "forward slash": "/",
     "question mark": "?",
     "exclamation mark": "!",
-    
+
     "sterisk": "*",
     "hash key": "#",
-    #"percent key": "%",
+    # "percent key": "%",
     "at key": "@",
     # Currencies
     "dollar sign": "$",
     "pound sign": "£",
+    "acute accent": "é",
 }
 symbol_key_words = {
     "point": ".",
     "quote": "'",
     "apostrophe": "'",
     "slash": "/",
-    #"backslash": "\\",
+    # "backslash": "\\",
     "minus": "-",
     "dash": "-",
     "equals": "=",
@@ -175,25 +173,25 @@ symbol_key_words = {
     "about": "~",
     "exclamation": "!",
     "score": "_",
-    "parent":"(",
+    "parent": "(",
     "angle": "<",
     "end angle": ">",
     "sterix": "*",
     "hashkey": "#",
-	"hash key": "#",
+    "hash key": "#",
     "percent": "%",
     "hat key": "^",
-	"hatkey": "^",
+    "hatkey": "^",
     "amper": "&",
-    #"pipe": "|",
+    # "pipe": "|",
     "quote bis": '"',
- #   "double quote": '"',
-	#"colon key": ":",
-	#"colonkey": ":",
-	"colon": ":",
+    #   "double quote": '"',
+    # "colon key": ":",
+    # "colonkey": ":",
+    "colon": ":",
     # Currencies
     "dollar": "$",
-    #"pound": "£",
+    # "pound": "£",
 }
 
 # make punctuation words also included in {user.symbol_keys}
@@ -220,21 +218,18 @@ simple_keys = [
     "tab",
 ]
 
-
-
 alternate_keys = {
     "suppress": "delete",
     # "forward delete": "delete",
-    #'junk': 'backspace',
-    #"page up": "pageup",
-	#"viewup": "pageup",
-	#"viewdown": "pagedown",
-	#"bin": "enter",
-	#"con": "ctrl",
-	"tep": "tab",
-	"scape": "escape"
+    # 'junk': 'backspace',
+    # "page up": "pageup",
+    # "viewup": "pageup",
+    # "viewdown": "pagedown",
+    # "bin": "enter",
+    # "con": "ctrl",
+    "tep": "tab",
+    "scape": "escape"
 }
-
 
 # mac appare	ntly doesn't have the menu key.
 if app.platform in ("windows", "linux"):
@@ -247,5 +242,3 @@ ctx.lists["self.special_key"] = special_keys
 ctx.lists["self.function_key"] = {
     f"Fun {default_f_digits[i]}": f"f{i + 1}" for i in range(12)
 }
-
-
