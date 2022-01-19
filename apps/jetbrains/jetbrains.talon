@@ -40,22 +40,6 @@ go type: user.idea("action GotoTypeDeclaration")
 go test: user.idea("action GotoTest")
 go back: user.idea("action Back")
 go forward: user.idea("action Forward")
-# Search
-find action :
-	key("ctrl-alt-a")
-
-find action <user.text> :
-    user.idea("action SearchEverywhere")
-    sleep(500ms)
-    insert(text)
-find class: user.idea("action GotoClass")
-find file: 	key("ctrl-shift-r")
-find path: user.idea("action FindInPath")
-find symbol: user.idea("action GotoSymbol")
-find symbol <user.text>$:
-    user.idea("action GotoSymbol")
-    insert(text)
-    key("enter")
 recent: user.idea("action RecentFiles")
 
 surround [this] with <user.text> [over]:
@@ -242,9 +226,31 @@ replace last <user.text> [over]: user.idea("find prev {text}, action EditorPaste
 replace next <user.text> [over]: user.idea("find next {text}, action EditorPaste")
 select last <user.text> [over]: user.idea("find prev {text}")
 
+#David
+#comment
+
+
+#find global commands
+find file [<user.text>] :
+    key("ctrl-shift-r")
+    sleep(500ms)
+    insert(text or "")
+
+find action  [<user.text>] :
+   	key("ctrl-alt-a")
+    sleep(500ms)
+    insert(text or "")
+find class: user.idea("action GotoClass")
+find path: user.idea("action FindInPath")
+find symbol: user.idea("action GotoSymbol")
+find symbol <user.text>$:
+    user.idea("action GotoSymbol")
+    insert(text)
+    key("enter")
+
 #misc
 column mode : key("alt-shift-insert")
-
+split vertically:
 
 #David key selection
 find in : key("ctrl-h")

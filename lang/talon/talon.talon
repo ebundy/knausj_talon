@@ -12,7 +12,7 @@ tag(): user.code_comment
 # see https://github.com/knausj85/knausj_talon/issues/600
 # tag(): user.talon_populate_lists
 
-dot talon: insert(".talon")
+
 #defintion blocks for the context
 action block:
     insert("action():")
@@ -49,18 +49,41 @@ list {user.talon_lists}: "{{{talon_lists}}}"
 capture {user.talon_captures}: "<{talon_captures}>"
 
 #commands for dictating key combos
-key <user.keys> over: "{keys}"
-key <user.modifiers> over: "{modifiers}"
+
+key <user.modifiers> over: "key(\"{modifiers}\")"
+sleep function:
+    insert("sleep(ms)")
+    edit.left()
+    edit.left()
+    edit.left()
+insert function:
+    insert("insert()")
+    edit.left()
+insert or function:
+    insert("insert( or \"\")")
+    edit.left()
+    edit.left()
+    edit.left()
+    edit.left()
+    edit.left()
+    edit.left()
+    edit.left()
+
+
 
 # basic list of actions (e.g., insert, key)
 funk <user.code_functions>:
     user.code_insert_function(code_functions, "")
 
 # all actions (requires uncommenting user.talon_populate_lists tag above)
-funk {user.talon_actions}: user.code_insert_function(talon_actions, edit.selected_text())
-funk cell <number>:
-    user.code_select_function(number - 1, "")
-funk wrap <user.code_functions>:
-    user.code_insert_function(code_functions, edit.selected_text())
-funk wrap <number>:
-    user.code_select_function(number - 1, edit.selected_text())
+#funk {user.talon_actions}: user.code_insert_function(talon_actions, edit.selected_text())
+#funk cell <number>:
+#    user.code_select_function(number - 1, "")
+#funk wrap <user.code_functions>:
+#    user.code_insert_function(code_functions, edit.selected_text())
+#funk wrap <number>:
+#    user.code_select_function(number - 1, edit.selected_text())
+
+#key("ctrl-shift-r")
+#    sleep(500ms)
+#    insert(text or "")
