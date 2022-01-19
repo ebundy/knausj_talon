@@ -192,7 +192,7 @@ class UserActions:
     # def split_window_down():
     # def split_window_up():
     def split_window_vertically():
-        actions.user.idea("action SplitVertically")
+        actions.key("ctrl-alt-v")
 
     def split_window_horizontally():
         actions.user.idea("action SplitHorizontally")
@@ -202,12 +202,14 @@ class UserActions:
 
     # def split_window():
     def split_clear():
-        actions.user.idea("action Unsplit")
+        actions.key('ctrl-alt-shift-w')
 
     def split_clear_all():
         actions.user.idea("action UnsplitAll")
 
     def split_next():
-        actions.user.idea("action NextSplitter")
-    # def split_last():
+        actions.key('ctrl-alt-k')
+
+    def split_last():
+        actions.key('ctrl-alt-shift-k')
     # def split_number(index: int):

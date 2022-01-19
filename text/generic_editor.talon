@@ -64,10 +64,10 @@ ex left:
 ex right:
     edit.extend_word_right()
 
-ex home | exhome | exome:
+ex home :
     edit.extend_line_start()
 
-ex end | exend:
+ex end :
     edit.extend_line_end()
 
 ex way up:

@@ -40,7 +40,7 @@ mode require [{user.talon_modes}]:
 tag require [{user.talon_tags}]: 
     tag = talon_tags or ""
     user.paste("tag: {tag}")
-tag set [{user.talon_tags}]: 
+tag set [{user.talon_tags}]:
     tag = talon_tags or ""
     user.paste("tag(): {tag}")
 # requires user.talon_populate_lists tag. do not use with dragon
@@ -50,16 +50,20 @@ capture {user.talon_captures}: "<{talon_captures}>"
 
 #commands for dictating key combos
 
-key <user.modifiers> over: "key(\"{modifiers}\")"
-sleep function:
+funk key <user.modifiers>:
+    insert("key(\"{modifiers}\")")
+    edit.left()
+    edit.left()
+
+funk sleep:
     insert("sleep(ms)")
     edit.left()
     edit.left()
     edit.left()
-insert function:
+funk insert:
     insert("insert()")
     edit.left()
-insert or function:
+funk insert or :
     insert("insert( or \"\")")
     edit.left()
     edit.left()
