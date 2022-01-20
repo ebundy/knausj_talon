@@ -11,8 +11,8 @@
 #word shell: "shell".
 zoom in: edit.zoom_in()
 zoom out: edit.zoom_out()
-move up: edit.page_up()
-move down: edit.page_down()
+move up | movup | moveup: edit.page_up()
+move down | movdown | movedown: edit.page_down()
 copy it: edit.copy()
 copyit: edit.copy()
 cudit: edit.cut()

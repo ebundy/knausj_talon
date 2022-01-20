@@ -104,8 +104,13 @@ settings: key("ctrl-alt-s")
 search history: key("alt-shift-o")
 move to opposite: key("alt-shift-g")
 
+maximize: key("ctrl-shift-f12")
+
 #David key selection
-find in : key("ctrl-h")
+find in  [<user.text>] :
+    key("ctrl-h")
+    sleep(500ms)
+    insert(text or "")
 
 find [<user.text>] :
     key("ctrl-f")

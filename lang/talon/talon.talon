@@ -55,6 +55,11 @@ funk key <user.modifiers>:
     edit.left()
     edit.left()
 
+restrict that:
+
+    text = edit.selected_text()
+    user.paste("'{text}'")
+
 funk sleep:
     insert("sleep(ms)")
     edit.left()

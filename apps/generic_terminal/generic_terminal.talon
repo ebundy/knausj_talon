@@ -7,8 +7,8 @@ liza:
     user.terminal_list_directories()
 liza all: 
     user.terminal_list_all_directories()
-(cidi [<user.text>])|(cd [<user.text>]): user.terminal_change_directory(text or "")
-cidi root: user.terminal_change_directory_root()
+#1(cidi [<user.text>])|(cd [<user.text>]): user.terminal_change_directory(text or "")
+dir root: user.terminal_change_directory_root()
 clear screen: user.terminal_clear_screen()
 run last: user.terminal_run_last()
 rerun [<user.text>]: user.terminal_rerun_search(text or "")

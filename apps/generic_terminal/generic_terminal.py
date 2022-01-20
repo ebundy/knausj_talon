@@ -33,8 +33,6 @@ class Actions:
 
     def grep(args: str, search: str):
         """grep comment. good here for interface"""
-        print('dodo!')
-
         actions.insert(f"grep '{search}' {args} ")
         if not search:
             nb_shift = len(args) + 3

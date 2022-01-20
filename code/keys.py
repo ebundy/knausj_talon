@@ -1,7 +1,7 @@
 from talon import Module, Context, app
 
 default_alphabet = ("atos black clyde dany eric fox glen hank ivan jack kent "
-                    "luka mac nix opi pat quack rob smith tex "
+                    "luka mac nix opi pat quack rob sky tex "
                     "usher vick west xi yugi zoko"
                     ).split(" ")
 
@@ -172,7 +172,7 @@ symbol_key_words = {
     "plus": "+",
     "about": "~",
     "exclamation": "!",
-    "score": "_",
+    "underscore": "_",
     "parent": "(",
     "angle": "<",
     "end angle": ">",

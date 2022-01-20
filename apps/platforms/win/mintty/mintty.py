@@ -118,7 +118,7 @@ class UserActions:
         actions.user.file_manager_open_directory(volume)
 
     def terminal_list_directories():
-        #print('ddd')	    
+
         actions.insert("ls -la")
         actions.key("enter")
 
