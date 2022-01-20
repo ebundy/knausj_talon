@@ -218,6 +218,18 @@ simple_keys = [
     "tab",
 ]
 
+simple_keys = {
+    "end": "end",
+    "enter": "enter",
+    "escape": "escape",
+    "home": "home",
+    "insert": "insert",
+    "movedown": "pagedown",
+    "moveup": "pageup",
+    "space": "space",
+    "tep": "tab",
+}
+
 alternate_keys = {
     "suppress": "delete",
     # "forward delete": "delete",

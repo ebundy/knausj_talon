@@ -11,8 +11,8 @@
 #word shell: "shell".
 zoom in: edit.zoom_in()
 zoom out: edit.zoom_out()
-move up | movup | moveup: edit.page_up()
-move down | movdown | movedown: edit.page_down()
+move up | movup : edit.page_up()
+move down | movdown: edit.page_down()
 copy it: edit.copy()
 copyit: edit.copy()
 cudit: edit.cut()
@@ -27,4 +27,4 @@ trash: key(backspace)
 (indent): 
 	insert("  ") 
 	key(left)  
-#slap: edit.line_insert_down()
+#slap: edit.line_insert_down()      

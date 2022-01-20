@@ -25,7 +25,7 @@ self taught: "self."
 pie test: "pytest"
 state past: "pass"
 op not: "not "
-^funky <user.text>$: user.code_default_function(text)
+^funk <user.text>$: user.code_default_function(text)
 #^pro funky <user.text>$: user.code_protected_function(text)
 ^pub funky <user.text>$: user.code_public_function(text)
 #^static funky <user.text>$: user.code_private_static_function(text)

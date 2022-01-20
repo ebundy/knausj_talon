@@ -22,4 +22,10 @@ class my_shortcuts:
 		"""to do"""
 		subprocess.Popen(["explorer.exe", "C:\\Users\\david\\Downloads"])
 		actions.sleep('1s')
-		actions.user.move_cursor_dav(677, 425, 1)	   
+		actions.user.move_cursor_dav(677, 425, 1)
+
+	def open_usb_key():
+		"""to do"""
+		subprocess.Popen(["explorer.exe", "I:\\"])
+		actions.sleep('1s')
+		actions.user.move_cursor_dav(677, 425, 1)

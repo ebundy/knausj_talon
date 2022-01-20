@@ -19,8 +19,14 @@ copy paste:
     edit.copy()
     sleep(50ms)
     edit.paste()
-	
+
+less:
+	user.less()
+
 grep  [<user.text>]:
+    user.grep("-rni", text or "")
+
+grep perl [<user.text>]:
     user.grep("-rni", text or "")
 
 grep include  [<user.text>]:

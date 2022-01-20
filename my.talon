@@ -45,4 +45,7 @@ run repl:
 	user.run_repl()
 	
 open downloads:
-	user.open_downloads()	
+	user.open_downloads()
+
+open usb key:
+	user.open_usb_key()

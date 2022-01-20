@@ -31,6 +31,10 @@ class Actions:
     def terminal_kill_all():
         """kills the running command"""
 
+    def less():
+        """less comment"""
+        actions.insert('less -i')
+
     def grep(args: str, search: str):
         """grep comment. good here for interface"""
         actions.insert(f"grep '{search}' {args} ")
