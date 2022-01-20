@@ -107,11 +107,11 @@ clear right:
     edit.extend_word_right()
     edit.delete()
 
-clear way left:
+clear home:
     edit.extend_line_start()
     edit.delete()
 
-clear way right:
+clear end:
     edit.extend_line_end()
     edit.delete()
 

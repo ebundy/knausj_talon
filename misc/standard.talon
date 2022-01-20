@@ -27,4 +27,5 @@ trash: key(backspace)
 (indent): 
 	insert("  ") 
 	key(left)  
-#slap: edit.line_insert_down()      
+#slap: edit.line_insert_down()
+

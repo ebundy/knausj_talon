@@ -22,7 +22,6 @@ copy paste:
 
 less:
 	user.less()
-
 grep  [<user.text>]:
     user.grep("-rni", text or "")
 
