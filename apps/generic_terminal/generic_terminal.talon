@@ -19,7 +19,8 @@ copy paste:
     edit.copy()
     sleep(50ms)
     edit.paste()
-
+cat:
+    insert("cat ")
 less:
 	user.less()
 grep  [<user.text>]:
