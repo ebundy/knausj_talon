@@ -1,7 +1,7 @@
 from talon import Module, Context, app
 
 default_alphabet = ("atos black clyde dany eric fox glen hank ivan jack kent "
-                    "luka mac nix opi pat quack rob sky tom "
+                    "luka mac nix opi pat quack rob sky tov "
                     "usher vick west xi yugi zoko"
                     ).split(" ")
 

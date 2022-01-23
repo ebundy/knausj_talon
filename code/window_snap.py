@@ -251,26 +251,21 @@ class Actions:
         )
 
     def set_windows_layout(snapped_application_left: str, snapped_applications_right: str):
-        """ to comment later """
+        """ to comment 5 later """
         print(f'{snapped_application_left}, {snapped_applications_right}')
-        actions.user.switcher_focus(snapped_application_left)
-        actions.sleep("100ms")
-        actions.key("super-up")
-        actions.sleep("100ms")
-        actions.key("super-up")
-        actions.sleep("100ms")
-        actions.key("super-up")
-        actions.sleep("100ms")
-        actions.key("super-left")
-        actions.sleep("200ms")
+        snap_application_to(snapped_application_left, 'left')
         # we repeat, after we will refactor
+        snap_application_to(snapped_applications_right, 'right')
+            
 
-        actions.user.switcher_focus(snapped_applications_right)
-        actions.sleep("200ms")
-        actions.key("super-up")
-        actions.sleep("200ms")
-        actions.key("super-up")
-        actions.sleep("200ms")
-        actions.key("super-up")
-        actions.sleep("200ms")
-        actions.key("super-right")
+def snap_application_to(application_name, screen_location):
+    actions.user.switcher_focus(application_name)
+    actions.sleep("100ms")
+    actions.key("super-up")
+    actions.sleep("100ms")
+    actions.key("super-up")
+    actions.sleep("100ms")
+    actions.key("super-up")
+    actions.sleep("100ms")
+    actions.key("super-" + screen_location)
+    actions.sleep("200ms")

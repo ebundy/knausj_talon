@@ -8,16 +8,13 @@ tag(): user.tabs
 # multiple_cursors.py support end
 
 # Refactoring
-refactor: user.idea("action Refactorings.QuickListPopupAction")
-refactor <user.text>:
-    user.idea("action Refactorings.QuickListPopupAction")
-    insert(text)
-extract variable: user.idea("action IntroduceVariable")
+refactor: key("alt-shift-t")
+extract variable: key("ctrl-alt-l")
 extract field: user.idea("action IntroduceField")
 extract constant: user.idea("action IntroduceConstant")
-extract parameter: user.idea("action IntroduceParameter")
+extract parameter: key("ctrl-alt-p")
 extract interface: user.idea("action ExtractInterface")
-extract method: user.idea("action ExtractMethod")
+extract method: key("ctrl-alt-m")
 refactor in line: user.idea("action Inline")
 refactor move: user.idea("action Move")
 rename:	key("alt-shift-r")

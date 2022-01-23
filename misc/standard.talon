@@ -19,13 +19,12 @@ cudit: edit.cut()
 
 paste it: edit.paste()
 pastit: edit.paste()
-undo it: edit.undo()
+undo it | undoit: edit.undo()
 redo it: edit.redo()
 paste match: edit.paste_match_style()
-^save$: edit.save()
+save|safe$: edit.save()
 trash: key(backspace)    
 (indent): 
 	insert("  ") 
 	key(left)  
 #slap: edit.line_insert_down()
-
