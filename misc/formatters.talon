@@ -10,7 +10,7 @@ settings():
 <user.format_text>+$: user.insert_many(format_text_list)
 <user.format_text>+ over: user.insert_many(format_text_list)
 <user.formatters> that: user.formatters_reformat_selection(user.formatters)
-word <user.word>: user.insert_formatted(user.word, "NOOP")
+token <user.word>: user.insert_formatted(user.word, "NOOP")
 recent list: user.toggle_phrase_history()
 recent close: user.phrase_history_hide()
 recent repeat <number_small>: insert(user.get_recent_phrase(number_small))

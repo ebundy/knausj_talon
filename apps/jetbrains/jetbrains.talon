@@ -20,9 +20,9 @@ extract interface: user.idea("action ExtractInterface")
 extract method: user.idea("action ExtractMethod")
 refactor in line: user.idea("action Inline")
 refactor move: user.idea("action Move")
-refactor rename: user.idea("action RenameElement")
+rename:	key("alt-shift-r")
 rename file: user.idea("action RenameFile")
-fix (format | formatting): user.idea("action ReformatCode")
+reformat: key("ctrl-shift-f")
 fix imports: user.idea("action OptimizeImports")
 #navigation
 (go declaration | follow): user.idea("action GotoDeclaration")
@@ -75,8 +75,10 @@ refactor <number> until <number>:
 clone <number>: user.line_clone(number)
 
 #David
-comment block:key("ctrl-shift-c")
-
+comment it:key("ctrl-shift-c")
+dock comment:
+    insert("\"\"\"  ")
+    edit.left()
 
 
 #find global commands
@@ -104,7 +106,7 @@ settings: key("ctrl-alt-s")
 search history: key("alt-shift-o")
 move to opposite: key("alt-shift-g")
 
-maximize: key("ctrl-shift-f12")
+maximize: key("ctrl-shift-f1")
 
 #David key selection
 find in  [<user.text>] :
@@ -118,13 +120,22 @@ find [<user.text>] :
     insert(text or "")
 
 replace : key("ctrl-r")
-next     :  key("ctrl-l")
+^next$  :  key("ctrl-l")
 previous :  key("ctrl-shift-l")
 
 select next :  key("alt-j")
 unselect :  key("shift-alt-j")
+
+#select without the requirement to use the find
+next raw: key("ctrl-f3")
+move to matching :key("ctrl-shift-m")
 #and David key selection
 
+#begin documentation
+error info: key("shift-f2")
+next error: key("ctrl-e")
+previous error: key("ctrl-shift-e")
+#end documentation
 select camel left: user.extend_camel_left()
 select camel right: user.extend_camel_right()
 go camel left: user.camel_left()

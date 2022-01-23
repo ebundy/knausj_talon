@@ -15,7 +15,7 @@ seventime| seven time: core.repeat_command(7)
 eighttime| eight time: core.repeat_command(8)
 ninetime| nine time: core.repeat_command(9)
 tentime| ten time: core.repeat_command(10)
-
+manytime: core.repeat_command(30)
 
 
 #repeat that <number_small> [times]: core.repeat_command(number_small)

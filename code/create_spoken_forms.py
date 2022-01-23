@@ -8,7 +8,7 @@ from talon import Module
 import re
 
 from .extensions import file_extensions
-from .numbers import digits_map, teens, scales, tens
+from .numbers import digits_map, scales
 from .abbreviate import abbreviations
 from .keys import symbol_key_words
 
@@ -56,7 +56,7 @@ ones = [""] + [
 
 # ["","","twenty","thirty","forty",..."ninety"]
 # or equivalent
-twenties = ["", ""] + [val for val in tens]
+# twenties = ["", ""] + [val for val in tens]
 # print("twenties = " + str(twenties))
 
 thousands = [""] + [val for index, val in enumerate(scales) if index != 0]
@@ -101,10 +101,10 @@ def create_spoken_form_for_number(num: int):
         # print(str(b1) + ", " + str(b2) + ", " + str(b3))
         if b2 == 0:
             words = [ones[b1], t] + words
-        elif b2 == 1:
-            words = [teens[b1], t] + words
-        elif b2 > 1:
-            words = [twenties[b2], ones[b1], t] + words
+        # elif b2 == 1:
+        #     words = [teens[b1], t] + words
+        # elif b2 > 1:
+        #     words = [twenties[b2], ones[b1], t] + words
         if b3 > 0:
             words = [ones[b3], scales[0]] + words
 

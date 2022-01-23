@@ -7,8 +7,6 @@ Originally from dweil/talon_community - modified for newapi by jcaw.
 # TODO: Map keyboard shortcuts to this manager once Talon has key hooks on all
 #   platforms
 
-import time
-from operator import xor
 from typing import Optional
 
 from talon import ui, Module, Context, actions
@@ -42,7 +40,7 @@ def _get_app_window(app_name: str) -> ui.Window:
 
 
 def _move_to_screen(
-    window: ui.Window, offset: Optional[int] = None, screen_number: Optional[int] = None
+        window: ui.Window, offset: Optional[int] = None, screen_number: Optional[int] = None
 ):
     """Move a window to a different screen.
 
@@ -53,7 +51,7 @@ def _move_to_screen(
 
     """
     assert (
-        screen_number or offset and not (screen_number and offset)
+            screen_number or offset and not (screen_number and offset)
     ), "Provide exactly one of `screen_number` or `offset`."
 
     src_screen = window.screen
@@ -145,8 +143,19 @@ mod = Module()
 mod.list(
     "window_snap_positions",
     "Predefined window positions for the current window. See `RelativeScreenPos`.",
+    # user.snapped_applications
 )
+mod.list("snapped_applications", desc="snapped applications")
 
+ctx = Context()
+ctx.lists["self.snapped_applications"] = {
+    "charm": "charm",
+    "google": "google",
+    "notepad": "notepad",
+    "pie": "pie",
+    "dos": "dos",
+    "git": "git",
+}
 
 _snap_positions = {
     # Halves
@@ -165,7 +174,7 @@ _snap_positions = {
     "left third": RelativeScreenPos(0, 0, 1 / 3, 1),
     "right third": RelativeScreenPos(2 / 3, 0, 1, 1),
     "left two thirds": RelativeScreenPos(0, 0, 2 / 3, 1),
-    "right two thirds": RelativeScreenPos(1 / 3, 0, 1, 1,),
+    "right two thirds": RelativeScreenPos(1 / 3, 0, 1, 1, ),
     # Quarters
     # .---.---.
     # |---|---|
@@ -240,3 +249,28 @@ class Actions:
         _move_to_screen(
             window, screen_number=screen_number,
         )
+
+    def set_windows_layout(snapped_application_left: str, snapped_applications_right: str):
+        """ to comment later """
+        print(f'{snapped_application_left}, {snapped_applications_right}')
+        actions.user.switcher_focus(snapped_application_left)
+        actions.sleep("100ms")
+        actions.key("super-up")
+        actions.sleep("100ms")
+        actions.key("super-up")
+        actions.sleep("100ms")
+        actions.key("super-up")
+        actions.sleep("100ms")
+        actions.key("super-left")
+        actions.sleep("200ms")
+        # we repeat, after we will refactor
+
+        actions.user.switcher_focus(snapped_applications_right)
+        actions.sleep("200ms")
+        actions.key("super-up")
+        actions.sleep("200ms")
+        actions.key("super-up")
+        actions.sleep("200ms")
+        actions.key("super-up")
+        actions.sleep("200ms")
+        actions.key("super-right")

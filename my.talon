@@ -49,3 +49,9 @@ open downloads:
 
 open usb key:
 	user.open_usb_key()
+
+out gmail David:
+    insert("davidhaccoun999@gmail.com")
+
+out gmail ebundy :
+    insert("ebundy@gmail.com")

@@ -14,6 +14,7 @@ mod.list("code_parameter_name", desc="List of common parameter names for active 
 function_list = []
 library_list = []
 
+
 @mod.capture(rule="{user.code_functions}")
 def code_functions(m) -> str:
     """Returns a function name"""
@@ -24,6 +25,7 @@ def code_functions(m) -> str:
 def code_libraries(m) -> str:
     """Returns a type"""
     return m.code_libraries
+
 
 setting_private_function_formatter = mod.setting("code_private_function_formatter", str)
 setting_protected_function_formatter = mod.setting(
@@ -44,6 +46,7 @@ mod.tag(
     "code_generic",
     desc="Tag for enabling other basic programming commands (loops, functions, etc)",
 )
+
 
 @mod.action_class
 class Actions:
@@ -88,6 +91,10 @@ class Actions:
 
     def code_state_for_each():
         """Inserts for each equivalent statement"""
+
+        def code_state_for_range(begin: int, end: int):
+
+            """todo"""
 
     def code_state_go_to():
         """inserts go-to statement"""
@@ -280,6 +287,11 @@ class Actions:
 
     def code_document_string():
         """Inserts a document string and positions the cursor appropriately"""
+
+    # David
+    def code_doc_comment():
+        """ todo """
+        pass
 
 
 def update_library_list_and_freeze():

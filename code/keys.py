@@ -1,7 +1,7 @@
 from talon import Module, Context, app
 
 default_alphabet = ("atos black clyde dany eric fox glen hank ivan jack kent "
-                    "luka mac nix opi pat quack rob sky tex "
+                    "luka mac nix opi pat quack rob sky tom "
                     "usher vick west xi yugi zoko"
                     ).split(" ")
 
@@ -128,8 +128,14 @@ alphabet = dict(zip(default_alphabet, letters_string))
 ctx.lists["self.letter"] = alphabet
 ctx.lists["self.numbers_one_to_nine"] = {
     "one": "1",
-    "one three four": "134",
-    "one three two": "132",
+    "two": "2",
+    "three": "3",
+    "four": "4",
+    "five": "5",
+    "six": "6",
+    "seven": "7",
+    "eight": "8",
+    "nine": "9",
 }
 
 # `punctuation_words` is for words you want available BOTH in dictation and as key names in command mode.
@@ -173,13 +179,14 @@ symbol_key_words = {
     "about": "~",
     "exclamation": "!",
     "underscore": "_",
-    "parent": "(",
+    "paren": "(",
+    "end paren": ")",
     "angle": "<",
     "end angle": ">",
     "sterix": "*",
     "hashkey": "#",
     "hash key": "#",
-    "percent": "%",
+    "percen": "%",
     "hat key": "^",
     "hatkey": "^",
     "amper": "&",
@@ -188,7 +195,7 @@ symbol_key_words = {
     #   "double quote": '"',
     # "colon key": ":",
     # "colonkey": ":",
-    "colon": ":",
+    "colony": ":",
     # Currencies
     "dollar": "$",
     # "pound": "£",
@@ -222,7 +229,7 @@ simple_keys = {
     "end": "end",
     "enter": "enter",
     "escape": "escape",
-    "home": "home",
+    "house": "home",
     "insert": "insert",
     "movedown": "pagedown",
     "moveup": "pageup",
@@ -243,13 +250,12 @@ alternate_keys = {
     "scape": "escape"
 }
 
-
 # mac appare	ntly doesn't have the menu key.
 if app.platform in ("windows", "linux"):
     alternate_keys["menu key"] = "menu"
     alternate_keys["print screen"] = "printscr"
 
-#special_keys = {k: k for k in simple_keys}
+# special_keys = {k: k for k in simple_keys}
 special_keys = simple_keys
 special_keys.update(alternate_keys)
 ctx.lists["self.special_key"] = special_keys

@@ -9,12 +9,12 @@ move left:
 
 move right:
     edit.word_right()
-
-#move on:
+#11move on:
 #    user.move_on()
 
 #move off:
-#    user.move_off()	
+#    user.move_off()
+
 
 left:
     edit.left()
@@ -27,19 +27,19 @@ up:
 
 down:
     edit.down()
-   
+
 go bottom:
     edit.file_end()
-    
+
 go top:
     edit.file_start()
 
 
 # selecting
-select line:
+ex line:
     edit.select_line()
-    
-select all|selectall:
+
+(ex all|exall):
     edit.select_all()
 
 step left:
@@ -48,14 +48,16 @@ step left:
 step right:
     #actions.find('edit.extend_right')
     edit.extend_right()
- 
+
 ex up:
     edit.extend_line_up()
 
 ex down:
     edit.extend_line_down()
+#ex <user.basic_one_digit_string> down:
+#    edit.extend_line_down()
 
-select word:
+ex token:
     edit.select_word()
 
 ex left:
@@ -96,7 +98,7 @@ clear line:
 #    edit.extend_line_down()
 #    edit.delete()
 
-clear word:
+clear token:
     edit.delete_word()
 
 clear left:
@@ -145,7 +147,7 @@ copy all:
 #     edit.extend_down()
 #     edit.copy()
 
-copy word:
+copy token:
     edit.select_word()
     edit.copy()
 
@@ -179,15 +181,15 @@ cut all:
 #     edit.select_all()
 #     edit.cut()
 
-cut word:
+cut token:
     edit.select_word()
     edit.cut()
 
-cut word left:
+cut left:
     edit.extend_word_left()
     edit.cut()
 
-cut word right:
+cut right:
     edit.extend_word_right()
     edit.cut()
 
@@ -202,11 +204,30 @@ duplic:
 	key("enter")
 	edit.paste()
 	key("home")
-	
-change word:
+
+paste token:
+    edit.select_word()
+    edit.paste()
+	edit.word_left()
+
+paste line:
     edit.select_line()
-    edit.copy()
-	key("end")
-	key("enter")
-	edit.paste()
-	key("home")	
+    edit.paste()
+    key("home")
+
+
+paste left:
+    edit.extend_word_left()
+    edit.paste()
+	edit.word_left()
+
+paste right:
+    edit.extend_word_right()
+    edit.paste()
+	edit.word_left()
+
+change by <user.text>:
+    edit.select_word()
+    insert(text)
+	edit.word_left()
+

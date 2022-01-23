@@ -25,6 +25,9 @@ self taught: "self."
 pie test: "pytest"
 state past: "pass"
 op not: "not "
+#type int: ": int"
+#type string: ": str"
+
 ^funk <user.text>$: user.code_default_function(text)
 #^pro funky <user.text>$: user.code_protected_function(text)
 ^pub funky <user.text>$: user.code_public_function(text)

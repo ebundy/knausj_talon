@@ -14,12 +14,12 @@ state else: user.code_state_else()
 state self: user.code_self()
 #todo: this is valid for many languages,
 # but probably not all
-self dot:
-    user.code_self()
-    insert(".")
 state while: user.code_state_while()
 state for: user.code_state_for()
 state for in: user.code_state_for_each()
+state for range {user.numbers_one_to_nine}:
+    user.code_state_for_range(numbers_one_to_nine)
+
 state switch: user.code_state_switch()
 state case: user.code_state_case()
 state do: user.code_state_do()
@@ -49,10 +49,12 @@ funk wrap <user.code_functions>:
     user.code_insert_function(code_functions, edit.selected_text())
 funk wrap <number>:
     user.code_select_function(number - 1, edit.selected_text())
-dock string: user.code_document_string()
+#dock comment: user.code_document_string()
 
 # for annotating function parameters
 is type {user.code_type}: user.code_insert_type_annotation(code_type)
 returns [type] {user.code_type}: user.code_insert_return_type(code_type)
 # for generic reference of types
 type {user.code_type}: insert("{code_type}")
+# comment for documentation
+

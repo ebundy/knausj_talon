@@ -20,12 +20,28 @@ find actions which the name,the parameters,The documentation  all the body of th
 find actions which the prefix matches with the prefix passed as parameter
 ex: actions.list("user")
 ---------------------------------------------------------------------- 
-how to call an action forma python file:
-built in action-> actions.sleep('1s')
-user action-> actions.user.move_cursor_dav(677, 425, 1)	   
----------------------------------------------------------------------- 
-how to press keys  simultaneously  form a talon file:
-key(ctrl-alt-insert)
+***form python file***
+how to press keys  simultaneously :
+actions.key("ctrl-alt-insert")
+
+how to call an action:
+built in action->
+actions.sleep('1s')
+actions.edit.left()
+
+user action-> actions.user.move_cursor_dav(677, 425, 1)
+----------------------------------------------------------------------
+***form talon file***
+how to press keys  simultaneously :
+key("ctrl-alt-insert")
+
+how to call and action :
+built in action->
+sleep('1s')
+edit.left()
+insert('')
+user action-> user.move_cursor_dav(736, 217, 1)
+
 
 ----------------------------------------------------------------------
 how to implement a new talon function for the terminal ?
@@ -154,5 +170,6 @@ behave  change: clear language modes
 
 -----------------------------------------------------------
 
-->i_am_a_boy
-ne-	>d->->->
+captures:
+<user.text>
+

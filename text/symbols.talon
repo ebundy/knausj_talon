@@ -41,28 +41,28 @@ bit angle:
 	insert("<>")
 	key(left)
 
-angle that:
+angle (that|dat):
     text = edit.selected_text()
     user.paste("<{text}>")
-(bracket) that:
+(bracket) (that|dat):
     text = edit.selected_text()
     user.paste("[{text}]")
-(brace) that:
+(brace) (that|dat):
     text = edit.selected_text()
     user.paste("{{{text}}}")
-parent that | paren that | parenthat:
+
+paren (that|dat) | parenthat | parendat:
     text = edit.selected_text()
     user.paste("({text})")
-percent that:
+percen (that|dat) | percenthat| percendat:
     text = edit.selected_text()
     user.paste("%{text}%")
-quote that:
+quote (that|dat):
     text = edit.selected_text()
     user.paste("'{text}'")
-(quote bis) that:
+(quote bis) (that|dat):
     text = edit.selected_text()
     user.paste('"{text}"')
-( back tick) that:
+( back tick) (that|dat):
     text = edit.selected_text()
     user.paste('`{text}`')
-
