@@ -233,7 +233,7 @@ simple_keys = {
     "insert": "insert",
     "movedown": "pagedown",
     "moveup": "pageup",
-    "spay": "space",
+    "stek": "space",
     "tep": "tab",
 }
 
