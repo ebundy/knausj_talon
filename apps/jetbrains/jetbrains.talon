@@ -45,17 +45,12 @@ new file| new   file:
     key(ctrl-alt-insert)
 
 # Movement
-go next (error | air): user.idea("action GotoNextError")
-go last (error | air): user.idea("action GotoPreviousError")
 fix next (error | air):
     user.idea("action GotoNextError")
     user.idea("action ShowIntentionActions")
 fix last (error | air):
     user.idea("action GotoPreviousError")
     user.idea("action ShowIntentionActions")
-# Special Selects
-select less: user.idea("action EditorUnSelectWord")
-select (more|this): user.idea("action EditorSelectWord")
 #jet brains-specific line commands. see line_commands.talon for generic ones
 expand <number> until <number>:
     user.select_range(number_1, number_2)
@@ -126,6 +121,11 @@ unselect :  key("shift-alt-j")
 #select without the requirement to use the find
 next raw: key("ctrl-f3")
 move to matching :key("ctrl-shift-m")
+
+case right: key("ctrl-alt-x")
+case left:key("ctrl-alt-shift-x")
+ex block end: key("ctrl-q")
+ex block start: key("ctrl-shift-q")
 #and David key selection
 
 #begin documentation

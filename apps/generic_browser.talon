@@ -71,42 +71,42 @@ show cache: browser.show_clear_cache()
 # search tabs: key(T)
 # move to window: key(W)
 
-nave gitlab talon: 
+gitlab talon:
 	browser.focus_address()
 	sleep(200ms)
 	insert("https://github.com/knausj85/knausj_talon/")
 	key(enter)
 	
-nave gitlab my talon: 
+gitlab my talon:
 	browser.go("https://github.com/ebundy/knausj_talon/")
 
-nave gitlab tokens: 
+gitlab tokens:
 	browser.go("https://github.com/settings/tokens")
 	
-nave blog: 
+blog:
 	browser.go("http://myjavaadventures.com/blog/wp-admin/")
 	
-nave blog articles: 
+blog articles:
 	browser.go("http://myjavaadventures.com/blog/wp-admin/edit.php")
 	sleep(3s)
 	user.move_cursor_dav(1497, 400, 1)	   
 	
 	
-nave picard: 
+picard:
 	browser.go("https://www.picard.fr/")
 		
-nave talon doc: 
+talon doc:
 	browser.go("https://talon.wiki/unofficial_talon_docs/")
 	sleep(3s)
 	user.move_cursor_dav(202, 731, 0)	   
 
 	
 	
-nave gmail David: 
+gmail David:
 	browser.go("https://mail.google.com/mail/data/u/1/")
 	
-nave gmail ebundy: 
+gmail ebundy:
 	browser.go("https://mail.google.com/mail/data/u/0/")
 	
-nave boursorama : 
+boursorama :
 	browser.go("https://clients.boursorama.com/connexion/")

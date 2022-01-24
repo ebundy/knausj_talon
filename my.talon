@@ -6,7 +6,7 @@ boygirlmen	edogdog:
 	key(ralt:up)
 
 #workaround for Git bash
-pipe: 
+pipe:
 	key(ralt:down - ralt:up)
 	
 brace:
@@ -44,11 +44,14 @@ hold off :
 run repl:
 	user.run_repl()
 	
-open downloads:
-	user.open_downloads()
+open download:
+	user.open_explorer( "C:\\Users\\david\\Downloads")
 
 open usb key:
-	user.open_usb_key()
+	user.open_explorer("I:\\")
+
+open old download:
+	user.open_explorer("F:\\OLD DL")
 
 out gmail David:
     insert("davidhaccoun999@gmail.com")
