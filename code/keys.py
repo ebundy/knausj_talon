@@ -1,8 +1,8 @@
 from talon import Module, Context, app
 
-default_alphabet = ("atos black clyde dany eric fox glen hank ivan jack kent "
+default_alphabet = ("ana black clyde dany eric fox glen hank ivan jack kent "
                     "luka mac nix opi pat quack rob sky tov "
-                    "usher vick west xi yugi zoko"
+                    "usher vick west xi yug zoko"
                     ).split(" ")
 
 letters_string = "abcdefghijklmnopqrstuvwxyz"
@@ -152,7 +152,7 @@ punctuation_words = {
     "full stop": ".",
     "point": ".",
     "semicolon": ";",
-
+    "colony": ":",
     "forward slash": "/",
     "question mark": "?",
     "exclamation mark": "!",
@@ -195,7 +195,7 @@ symbol_key_words = {
     #   "double quote": '"',
     # "colon key": ":",
     # "colonkey": ":",
-    "colony": ":",
+
     # Currencies
     "dollar": "$",
     # "pound": "£",
@@ -227,13 +227,13 @@ ctx.lists["self.arrow_key"] = {
 
 simple_keys = {
     "end": "end",
-    "enter": "enter",
+    "ben": "enter",
     "escape": "escape",
     "house": "home",
     "insert": "insert",
     "movedown": "pagedown",
     "moveup": "pageup",
-    "space": "space",
+    "spay": "space",
     "tep": "tab",
 }
 
@@ -247,7 +247,9 @@ alternate_keys = {
     # "bin": "enter",
     # "con": "ctrl",
     "tep": "tab",
-    "scape": "escape"
+    "scape": "escape",
+    "done": "down"
+
 }
 
 # mac appare	ntly doesn't have the menu key.

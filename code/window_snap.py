@@ -254,18 +254,17 @@ class Actions:
         """ to comment 5 later """
         print(f'{snapped_application_left}, {snapped_applications_right}')
         snap_application_to(snapped_application_left, 'left')
-        # we repeat, after we will refactor
+        actions.sleep("200ms")
         snap_application_to(snapped_applications_right, 'right')
-            
+
 
 def snap_application_to(application_name, screen_location):
     actions.user.switcher_focus(application_name)
-    actions.sleep("100ms")
-    actions.key("super-up")
-    actions.sleep("100ms")
-    actions.key("super-up")
-    actions.sleep("100ms")
-    actions.key("super-up")
-    actions.sleep("100ms")
-    actions.key("super-" + screen_location)
     actions.sleep("200ms")
+    actions.key("super-up")
+    actions.sleep("200ms")
+    actions.key("super-up")
+    actions.sleep("200ms")
+    # actions.key("super-up")
+    # actions.sleep("200ms")
+    actions.key("super-" + screen_location)

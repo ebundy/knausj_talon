@@ -66,7 +66,7 @@ ex left:
 ex right:
     edit.extend_word_right()
 
-ex home :
+ex house :
     edit.extend_line_start()
 
 ex end :
@@ -109,7 +109,7 @@ clear right:
     edit.extend_word_right()
     edit.delete()
 
-clear home:
+clear house:
     edit.extend_line_start()
     edit.delete()
 

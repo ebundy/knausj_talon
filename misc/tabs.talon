@@ -5,7 +5,7 @@ tag: user.tabs
 tep left | tepleft: app.tab_previous()
 tep right | tepright : app.tab_next()
 tep new: app.tab_open()		
-tep close | tepclose: user.tab_close_wrapper()
+tep close | tepclose | tep plus | tepplus: user.tab_close_wrapper()
 tep (reopen): app.tab_reopen()
 go tep <number>: user.tab_jump(number)
 go tep final: user.tab_final()

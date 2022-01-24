@@ -22,9 +22,11 @@ pastit: edit.paste()
 undo it | undoit: edit.undo()
 redo it: edit.redo()
 paste match: edit.paste_match_style()
-save|safe$: edit.save()
-trash: key(backspace)    
+save|safe: edit.save()
+wesh: key(backspace)
 (indent): 
 	insert("  ") 
 	key(left)  
 #slap: edit.line_insert_down()
+
+

@@ -9,7 +9,7 @@ boygirlmen	edogdog:
 pipe: 
 	key(ralt:down - ralt:up)
 	
-brace: 
+brace:
 	key(ralt:down ' ralt:up)
 
 end brace: 
