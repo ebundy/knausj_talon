@@ -190,8 +190,14 @@ def update_running_list():
             # print(cur_app.exe)
             running_application_dict[cur_app.exe.split(os.path.sep)[-1]] = True
 
+    if app.platform == "windows":
+        import win32gui
+        window_id = win32gui.FindWindow('CabinetWClass', None)
+        if window_id > 0:
+            running_application_dict['explorer'] = True
+
     running = actions.user.create_spoken_forms_from_list(
-        [curr_app.name for curr_app in ui.apps(background=False)],
+        [curr_app_name for curr_app_name in running_application_dict.keys()],
         words_to_exclude=words_to_exclude,
         generate_subsequences=True,
     )
@@ -253,6 +259,15 @@ class Actions:
                 and application.exe.split(os.path.sep)[-1] == name
             ):
                 return application
+
+        if app.platform == "windows" and name == 'explorer':
+            import win32gui
+            import win32com
+            window = win32gui.FindWindow('CabinetWClass', None)
+            shell = win32com.client.Dispatch("WScript.Shell")
+            shell.SendKeys('')
+            win32gui.SetForegroundWindow(window)
+
         raise RuntimeError(f'App not running: "{name}"')
 
     def switcher_focus(name: str):
