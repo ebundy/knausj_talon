@@ -262,11 +262,16 @@ class Actions:
 
         if app.platform == "windows" and name == 'explorer':
             import win32gui
-            import win32com
+            import win32com.client
             window = win32gui.FindWindow('CabinetWClass', None)
-            shell = win32com.client.Dispatch("WScript.Shell")
-            shell.SendKeys('')
-            win32gui.SetForegroundWindow(window)
+            if window > 0:
+                shell = win32com.client.Dispatch("WScript.Shell")
+                shell.SendKeys('')
+                win32gui.SetForegroundWindow(window)
+                # That he's dirty because I don't know how to return an talon ui.app
+                # object here
+                return None
+
 
         raise RuntimeError(f'App not running: "{name}"')
 
